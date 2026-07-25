@@ -250,9 +250,10 @@ def guide_recommend(
 def guide_score(
     pose: str = typer.Option(..., "--pose", "-p"),
     subject: Path = typer.Option(..., "--subject", "-i", exists=True, dir_okay=False),
+    mediapipe: bool = typer.Option(False, "--mediapipe", help="Use MediaPipe scoring with toy fallback"),
 ) -> None:
     try:
-        result = score_subject_against_pose(pose, subject)
+        result = score_subject_against_pose(pose, subject, use_mediapipe=mediapipe)
     except KeyError as exc:
         console.print(f"[red]{exc}[/red]")
         raise typer.Exit(code=1) from exc
