@@ -465,3 +465,12 @@ def guide_export(input_file=typer.Option(...,"--input","-i",exists=True), output
     if format == "coco": export_coco(poses, img_size, output)
     elif format == "mediapipe": export_mediapipe(poses, output)
     console.print(f"[green]Exported[/green]")
+
+@guide_app.command("export")
+def guide_export(input_file=typer.Option(...,"--input","-i",exists=True), output=typer.Option(...,"--output","-o"), format=typer.Option("coco","--format","-f")):
+    from poseguide.export import export_coco, export_mediapipe
+    poses = [{}]
+    img_size = (1920, 1080)
+    if format == "coco": export_coco(poses, img_size, output)
+    elif format == "mediapipe": export_mediapipe(poses, output)
+    console.print(f"[green]Exported[/green]")
