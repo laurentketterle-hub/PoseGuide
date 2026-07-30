@@ -1,0 +1,96 @@
+{
+  "id": "studio_hand_on_hip_power",
+  "name": "Studio Hand on Hip Power (Portrait)",
+  "standing": true,
+  "tags": [
+    "studio",
+    "indoor",
+    "portrait",
+    "power",
+    "confident",
+    "business",
+    "fashion"
+  ],
+  "tips": [
+    "Stand tall with chest lifted and shoulders rolled back",
+    "Place one hand firmly on the hip with elbow pointing outward",
+    "Let the opposite arm hang naturally or rest gently at your side",
+    "Shift weight slightly to one leg for a relaxed contrapposto",
+    "Keep chin level or slightly lifted — project confidence",
+    "Engage your core for a clean silhouette"
+  ],
+  "camera_cues": [
+    "Key light at 45 degrees with soft fill for studio portrait look",
+    "Shoot at eye level or slightly below for a powerful upward angle",
+    "Full-body or 3/4 crop depending on backdrop height",
+    "Seamless gray or white backdrop recommended",
+    "Use a 50mm–85mm lens for flattering compression"
+  ],
+  "joints": {
+    "nose": [
+      0.5,
+      0.12,
+      0.0
+    ],
+    "l_shoulder": [
+      0.42,
+      0.27,
+      0.0
+    ],
+    "r_shoulder": [
+      0.58,
+      0.27,
+      0.0
+    ],
+    "l_elbow": [
+      0.38,
+      0.44,
+      0.0
+    ],
+    "r_elbow": [
+      0.66,
+      0.42,
+      0.0
+    ],
+    "l_wrist": [
+      0.36,
+      0.56,
+      0.0
+    ],
+    "r_wrist": [
+      0.56,
+      0.56,
+      0.0
+    ],
+    "l_hip": [
+      0.44,
+      0.56,
+      0.0
+    ],
+    "r_hip": [
+      0.57,
+      0.55,
+      0.0
+    ],
+    "l_knee": [
+      0.44,
+      0.73,
+      0.0
+    ],
+    "r_knee": [
+      0.57,
+      0.72,
+      0.0
+    ],
+    "l_ankle": [
+      0.44,
+      0.91,
+      0.0
+    ],
+    "r_ankle": [
+      0.57,
+      0.9,
+      0.0
+    ]
+  }
+}
