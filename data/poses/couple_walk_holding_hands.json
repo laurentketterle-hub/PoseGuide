@@ -1,0 +1,33 @@
+{
+  "name": "couple_walk_holding_hands",
+  "category": "duo outdoor",
+  "description": "Couple walking while holding hands pose for outdoor scenes.",
+  "joints": [
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+    "left_wrist",
+    "right_wrist",
+    "left_hip",
+    "right_hip",
+    "left_knee",
+    "right_knee",
+    "left_ankle",
+    "right_ankle"
+  ],
+  "angles": {
+    "left_elbow": 160,
+    "right_elbow": 160,
+    "left_knee": 170,
+    "right_knee": 170,
+    "left_shoulder": 45,
+    "right_shoulder": 45
+  },
+  "tips": [
+    "Hold the pose steady for best detection accuracy",
+    "Ensure full body is visible in frame",
+    "Good lighting improves joint detection"
+  ],
+  "version": "1.0"
+}
