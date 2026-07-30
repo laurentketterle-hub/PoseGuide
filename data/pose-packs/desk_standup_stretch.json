@@ -1,0 +1,45 @@
+{
+  "name": "desk_standup_stretch",
+  "category": "office_ergonomics",
+  "description": "A standing desk stretch routine to relieve tension from prolonged sitting. Includes neck rolls, shoulder shrugs, wrist stretches, and standing back extensions.",
+  "joints": [
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+    "left_wrist",
+    "right_wrist",
+    "left_hip",
+    "right_hip",
+    "left_knee",
+    "right_knee",
+    "neck",
+    "spine"
+  ],
+  "angles": {
+    "left_shoulder": 90,
+    "right_shoulder": 90,
+    "left_elbow": 160,
+    "right_elbow": 160,
+    "left_wrist": 45,
+    "right_wrist": 45,
+    "left_hip": 170,
+    "right_hip": 170,
+    "left_knee": 175,
+    "right_knee": 175,
+    "neck": 15,
+    "spine": 10
+  },
+  "duration_seconds": 120,
+  "tips": [
+    "Stand up from your desk and step back to give yourself room",
+    "Keep your feet shoulder-width apart for stability",
+    "Breathe deeply and hold each stretch for 10-15 seconds",
+    "Roll your shoulders backward 5 times, then forward 5 times",
+    "Gently tilt your head from side to side for neck relief",
+    "Extend your arms overhead and interlace your fingers",
+    "Bend forward at the waist to stretch your lower back",
+    "Repeat the routine every 2 hours during desk work"
+  ],
+  "version": "1.0"
+}
