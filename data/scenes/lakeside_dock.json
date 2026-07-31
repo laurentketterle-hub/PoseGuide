@@ -1,0 +1,24 @@
+{
+  "id": "lakeside_dock",
+  "name": "Lakeside Dock",
+  "tags": [
+    "lake",
+    "outdoor",
+    "daylight",
+    "reflection",
+    "serene"
+  ],
+  "mood": [
+    "peaceful",
+    "contemplative"
+  ],
+  "expected_poses": [
+    "sitting",
+    "looking_away",
+    "chin_rest"
+  ],
+  "composition": {
+    "horizon": "middle",
+    "subject_placement": "left_third"
+  }
+}
