@@ -1,0 +1,39 @@
+{
+  "id": "studio_hand_on_hip_power",
+  "name": "Studio Hand on Hip Power",
+  "standing": true,
+  "tags": [
+    "indoor",
+    "studio",
+    "portrait",
+    "confident",
+    "power",
+    "professional"
+  ],
+  "tips": [
+    "Hand firmly on hip, fingers forward",
+    "Shoulders back and down",
+    "Chin slightly lifted for authority",
+    "Weight evenly distributed"
+  ],
+  "camera_cues": [
+    "chest-up or three-quarter body",
+    "soft key light from 45 degrees",
+    "plain or textured studio backdrop"
+  ],
+  "joints": {
+    "nose": [0.5, 0.1, 0.0],
+    "l_shoulder": [0.42, 0.26, 0.0],
+    "r_shoulder": [0.58, 0.26, 0.0],
+    "l_elbow": [0.34, 0.4, 0.0],
+    "r_elbow": [0.64, 0.42, 0.0],
+    "l_wrist": [0.42, 0.55, 0.0],
+    "r_wrist": [0.56, 0.56, 0.0],
+    "l_hip": [0.45, 0.55, 0.0],
+    "r_hip": [0.55, 0.55, 0.0],
+    "l_knee": [0.45, 0.72, 0.0],
+    "r_knee": [0.55, 0.72, 0.0],
+    "l_ankle": [0.45, 0.9, 0.0],
+    "r_ankle": [0.55, 0.9, 0.0]
+  }
+}
