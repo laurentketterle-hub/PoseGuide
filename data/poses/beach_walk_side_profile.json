@@ -1,0 +1,65 @@
+{
+  "name": "beach_walk_side_profile",
+  "category": "outdoor_portrait",
+  "description": "A beach side-profile walking pose capturing a relaxed stride along the shoreline. Perfect for lifestyle and travel photography with natural ocean backdrop.",
+  "joints": [
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+    "left_wrist",
+    "right_wrist",
+    "left_hip",
+    "right_hip",
+    "left_knee",
+    "right_knee",
+    "left_ankle",
+    "right_ankle",
+    "neck",
+    "spine"
+  ],
+  "angles": {
+    "left_shoulder": 15,
+    "right_shoulder": 160,
+    "left_elbow": 170,
+    "right_elbow": 45,
+    "left_wrist": 10,
+    "right_wrist": 20,
+    "left_hip": 160,
+    "right_hip": 175,
+    "left_knee": 165,
+    "right_knee": 175,
+    "left_ankle": 90,
+    "right_ankle": 80,
+    "neck": 5,
+    "spine": 8
+  },
+  "camera_cues": {
+    "angle": "side profile at subject height",
+    "distance": "3-4 meters for full body",
+    "focus": "subject face and shoreline",
+    "lighting": "natural golden hour backlight preferred"
+  },
+  "duration_seconds": 5,
+  "tips": [
+    "Walk naturally as if strolling along the beach",
+    "Keep your gaze toward the horizon, not the camera",
+    "Let your arms swing gently with the stride",
+    "Position the ocean or shoreline in the background",
+    "Shoot during golden hour for warm, flattering light",
+    "Use a slightly slower shutter for motion blur in the waves",
+    "Ensure even weight distribution for a relaxed look",
+    "Frame subject on the left/right third for composition"
+  ],
+  "tags": [
+    "beach",
+    "outdoor",
+    "walking",
+    "portrait",
+    "lifestyle",
+    "travel",
+    "side_profile",
+    "golden_hour"
+  ],
+  "version": "1.0"
+}
