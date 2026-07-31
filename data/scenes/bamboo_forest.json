@@ -1,0 +1,24 @@
+{
+  "id": "bamboo_forest",
+  "name": "Bamboo Forest",
+  "tags": [
+    "forest",
+    "outdoor",
+    "daylight",
+    "nature",
+    "green"
+  ],
+  "mood": [
+    "mystical",
+    "calm"
+  ],
+  "expected_poses": [
+    "standing",
+    "looking_away",
+    "arms_raised"
+  ],
+  "composition": {
+    "horizon": "upper_third",
+    "subject_placement": "center"
+  }
+}
