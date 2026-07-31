@@ -1,0 +1,24 @@
+{
+  "id": "mountain_summit",
+  "name": "Mountain Summit",
+  "tags": [
+    "mountain",
+    "outdoor",
+    "daylight",
+    "landscape",
+    "adventure"
+  ],
+  "mood": [
+    "triumphant",
+    "expansive"
+  ],
+  "expected_poses": [
+    "arms_raised",
+    "looking_away",
+    "hands_on_hips"
+  ],
+  "composition": {
+    "horizon": "upper_third",
+    "subject_placement": "center"
+  }
+}
