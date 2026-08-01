@@ -444,6 +444,25 @@ def data_extract(
     console.print(f"[green]Wrote[/green] {path}")
 
 
+@data_app.command("export")
+def data_export(
+    format: str = typer.Option("coco", "--format", "-f", help="Export format: coco or mediapipe"),
+    out: Optional[Path] = typer.Option(None, "--out", "-o", help="Output file path"),
+) -> None:
+    """Export shipped poses to COCO or MediaPipe keypoint format."""
+    from poseguide.data.export_formats import export_poses
+
+    try:
+        result = export_poses(format=format, out_path=out)
+    except (ValueError, FileNotFoundError) as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+
+    count = result["_count"]
+    path = result["_exported_to"]
+    console.print(f"[green]Exported {count} poses to {format}[/green] → {path}")
+
+
 @train_app.command("report")
 def train_report() -> None:
     path = Path("data/runs/toy_train_report.json")
