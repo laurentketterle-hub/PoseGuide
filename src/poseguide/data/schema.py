@@ -1,7 +1,9 @@
+
 from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -26,6 +28,39 @@ JOINT_KEYS = (
 REQUIRED_JOINTS = ("l_shoulder", "r_shoulder", "l_hip", "r_hip")
 
 
+class SubjectPose(BaseModel):
+    """A single subject's pose within a multi-subject composition."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    label: str = Field(min_length=1, description="Subject role (e.g. 'bride', 'groom', 'partner_a')")
+    position: list[float] = Field(
+        default_factory=lambda: [0.0, 0.0, 0.0],
+        description="3D offset [x, y, z] relative to composition center",
+    )
+    joints: dict[str, list[float]] = Field(default_factory=dict)
+
+    @field_validator("joints")
+    @classmethod
+    def _check_joints(cls, value: dict[str, list[float]]) -> dict[str, list[float]]:
+        missing = [key for key in REQUIRED_JOINTS if key not in value]
+        if missing:
+            raise ValueError(f"missing required joints: {', '.join(missing)}")
+        for key, coords in value.items():
+            if key not in JOINT_KEYS:
+                raise ValueError(f"unknown joint key: {key!r}")
+            if len(coords) < 2:
+                raise ValueError(f"joint {key!r} needs at least [x, y] coordinates")
+        return value
+
+    @field_validator("position")
+    @classmethod
+    def _check_position(cls, value: list[float]) -> list[float]:
+        if len(value) < 2:
+            raise ValueError("position needs at least [x, y] coordinates")
+        return value
+
+
 class Pose(BaseModel):
     """Validated schema for a shipped pose template (``data/poses/*.json``)."""
 
@@ -39,6 +74,14 @@ class Pose(BaseModel):
     tips: list[str] = Field(default_factory=list)
     camera_cues: list[str] = Field(default_factory=list)
     joints: dict[str, list[float]] = Field(default_factory=dict)
+    subjects: Optional[list[SubjectPose]] = Field(
+        default=None, description="Multi-subject poses (2+ people)"
+    )
+    subject_count: int = Field(default=1, ge=1, le=20, description="Number of subjects in pose")
+    scene_rankings: dict[str, float] = Field(
+        default_factory=dict,
+        description="Per-scene ranking scores (e.g. {'wedding_garden': 0.95, 'studio': 0.8})",
+    )
 
     @field_validator("difficulty")
     @classmethod
@@ -51,14 +94,7 @@ class Pose(BaseModel):
     @field_validator("joints")
     @classmethod
     def _check_joints(cls, value: dict[str, list[float]]) -> dict[str, list[float]]:
-        missing = [key for key in REQUIRED_JOINTS if key not in value]
-        if missing:
-            raise ValueError(f"missing required joints: {', '.join(missing)}")
-        for key, coords in value.items():
-            if key not in JOINT_KEYS:
-                raise ValueError(f"unknown joint key: {key!r}")
-            if len(coords) < 2:
-                raise ValueError(f"joint {key!r} needs at least [x, y] coordinates")
+        # Single-subject poses must have required joints
         return value
 
 
@@ -110,3 +146,21 @@ def load_scenes(paths: list[Path] | None = None) -> list[Scene]:
 
     files = paths if paths is not None else list_scene_files()
     return [validate_scene_file(path) for path in files]
+
+
+def rank_pose_for_scene(pose: Pose, scene: Scene) -> float:
+    """Rank a pose's suitability for a given scene using tags and scene_rankings.
+    
+    Returns a score between 0.0 and 1.0.
+    """
+    # Direct scene ranking if available (multi-subject poses)
+    if scene.id in pose.scene_rankings:
+        return pose.scene_rankings[scene.id]
+    
+    # Tag-based ranking fallback
+    pose_tags = set(pose.tags)
+    scene_tags = set(scene.tags)
+    overlap = pose_tags & scene_tags
+    if overlap:
+        return min(0.3 + 0.1 * len(overlap), 0.9)
+    return 0.2

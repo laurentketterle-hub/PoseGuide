@@ -1,0 +1,184 @@
+{
+  "id": "couple_embrace_face_to_face",
+  "name": "Couple Embrace Face to Face",
+  "standing": true,
+  "difficulty": "medium",
+  "tags": [
+    "outdoor",
+    "wedding",
+    "garden",
+    "couple",
+    "romantic",
+    "portrait",
+    "close"
+  ],
+  "tips": [
+    "Face each other, chests close",
+    "Arms wrapped around partner",
+    "Foreheads touching or gaze into eyes"
+  ],
+  "camera_cues": [
+    "chest-up or waist-up",
+    "shallow depth of field",
+    "warm backlight"
+  ],
+  "subject_count": 2,
+  "subjects": [
+    {
+      "label": "partner_a",
+      "position": [
+        -0.08,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.46,
+          0.12,
+          0.0
+        ],
+        "l_shoulder": [
+          0.4,
+          0.24,
+          0.0
+        ],
+        "r_shoulder": [
+          0.52,
+          0.24,
+          0.0
+        ],
+        "l_elbow": [
+          0.32,
+          0.36,
+          0.0
+        ],
+        "r_elbow": [
+          0.6,
+          0.36,
+          0.0
+        ],
+        "l_wrist": [
+          0.28,
+          0.5,
+          0.1
+        ],
+        "r_wrist": [
+          0.64,
+          0.5,
+          0.1
+        ],
+        "l_hip": [
+          0.44,
+          0.54,
+          0.0
+        ],
+        "r_hip": [
+          0.48,
+          0.54,
+          0.0
+        ],
+        "l_knee": [
+          0.43,
+          0.7,
+          0.0
+        ],
+        "r_knee": [
+          0.49,
+          0.7,
+          0.0
+        ],
+        "l_ankle": [
+          0.42,
+          0.88,
+          0.0
+        ],
+        "r_ankle": [
+          0.5,
+          0.88,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "partner_b",
+      "position": [
+        0.08,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.54,
+          0.12,
+          0.0
+        ],
+        "l_shoulder": [
+          0.48,
+          0.24,
+          0.0
+        ],
+        "r_shoulder": [
+          0.6,
+          0.24,
+          0.0
+        ],
+        "l_elbow": [
+          0.4,
+          0.36,
+          0.0
+        ],
+        "r_elbow": [
+          0.68,
+          0.36,
+          0.0
+        ],
+        "l_wrist": [
+          0.36,
+          0.5,
+          0.1
+        ],
+        "r_wrist": [
+          0.72,
+          0.5,
+          0.1
+        ],
+        "l_hip": [
+          0.52,
+          0.54,
+          0.0
+        ],
+        "r_hip": [
+          0.56,
+          0.54,
+          0.0
+        ],
+        "l_knee": [
+          0.51,
+          0.7,
+          0.0
+        ],
+        "r_knee": [
+          0.57,
+          0.7,
+          0.0
+        ],
+        "l_ankle": [
+          0.5,
+          0.88,
+          0.0
+        ],
+        "r_ankle": [
+          0.58,
+          0.88,
+          0.0
+        ]
+      }
+    }
+  ],
+  "scene_rankings": {
+    "wedding_garden": 0.95,
+    "garden_path": 0.8,
+    "street": 0.4,
+    "studio": 0.65
+  }
+}

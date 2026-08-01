@@ -1,0 +1,184 @@
+{
+  "id": "couple_first_dance",
+  "name": "Couple First Dance",
+  "standing": true,
+  "difficulty": "medium",
+  "tags": [
+    "indoor",
+    "wedding",
+    "event",
+    "couple",
+    "romantic",
+    "dance",
+    "action"
+  ],
+  "tips": [
+    "Classic dance hold \u2014 one hand on shoulder, other clasped",
+    "Sway slightly, weight on back foot",
+    "Smile and eye contact"
+  ],
+  "camera_cues": [
+    "waist-up or full body",
+    "warm ambient light",
+    "shallow depth of field"
+  ],
+  "subject_count": 2,
+  "subjects": [
+    {
+      "label": "lead",
+      "position": [
+        -0.05,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.44,
+          0.14,
+          0.0
+        ],
+        "l_shoulder": [
+          0.38,
+          0.26,
+          0.0
+        ],
+        "r_shoulder": [
+          0.5,
+          0.26,
+          0.0
+        ],
+        "l_elbow": [
+          0.34,
+          0.38,
+          -0.05
+        ],
+        "r_elbow": [
+          0.58,
+          0.36,
+          0.1
+        ],
+        "l_wrist": [
+          0.32,
+          0.48,
+          0.0
+        ],
+        "r_wrist": [
+          0.62,
+          0.42,
+          0.05
+        ],
+        "l_hip": [
+          0.42,
+          0.54,
+          0.0
+        ],
+        "r_hip": [
+          0.46,
+          0.54,
+          0.0
+        ],
+        "l_knee": [
+          0.4,
+          0.7,
+          0.05
+        ],
+        "r_knee": [
+          0.48,
+          0.68,
+          0.0
+        ],
+        "l_ankle": [
+          0.39,
+          0.88,
+          0.0
+        ],
+        "r_ankle": [
+          0.49,
+          0.86,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "follow",
+      "position": [
+        0.05,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.56,
+          0.14,
+          0.0
+        ],
+        "l_shoulder": [
+          0.5,
+          0.26,
+          0.0
+        ],
+        "r_shoulder": [
+          0.62,
+          0.26,
+          0.0
+        ],
+        "l_elbow": [
+          0.42,
+          0.36,
+          -0.1
+        ],
+        "r_elbow": [
+          0.66,
+          0.38,
+          0.05
+        ],
+        "l_wrist": [
+          0.38,
+          0.42,
+          0.05
+        ],
+        "r_wrist": [
+          0.68,
+          0.48,
+          0.0
+        ],
+        "l_hip": [
+          0.54,
+          0.54,
+          0.0
+        ],
+        "r_hip": [
+          0.58,
+          0.54,
+          0.0
+        ],
+        "l_knee": [
+          0.52,
+          0.68,
+          0.0
+        ],
+        "r_knee": [
+          0.6,
+          0.7,
+          0.05
+        ],
+        "l_ankle": [
+          0.51,
+          0.86,
+          0.0
+        ],
+        "r_ankle": [
+          0.61,
+          0.88,
+          0.0
+        ]
+      }
+    }
+  ],
+  "scene_rankings": {
+    "wedding_garden": 0.9,
+    "garden_path": 0.6,
+    "street": 0.3,
+    "studio": 0.65
+  }
+}

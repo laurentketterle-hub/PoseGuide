@@ -1,0 +1,184 @@
+{
+  "id": "couple_back_to_back",
+  "name": "Couple Back to Back",
+  "standing": true,
+  "difficulty": "easy",
+  "tags": [
+    "outdoor",
+    "street",
+    "studio",
+    "couple",
+    "standing",
+    "cool",
+    "fashion"
+  ],
+  "tips": [
+    "Backs touching, arms crossed",
+    "Confident expression",
+    "Slight chin lift"
+  ],
+  "camera_cues": [
+    "full body or waist-up",
+    "symmetrical composition",
+    "backlight or rim light"
+  ],
+  "subject_count": 2,
+  "subjects": [
+    {
+      "label": "partner_a",
+      "position": [
+        -0.06,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.44,
+          0.16,
+          -0.05
+        ],
+        "l_shoulder": [
+          0.4,
+          0.28,
+          0.0
+        ],
+        "r_shoulder": [
+          0.48,
+          0.28,
+          0.0
+        ],
+        "l_elbow": [
+          0.36,
+          0.4,
+          0.05
+        ],
+        "r_elbow": [
+          0.52,
+          0.4,
+          0.05
+        ],
+        "l_wrist": [
+          0.34,
+          0.52,
+          0.1
+        ],
+        "r_wrist": [
+          0.54,
+          0.52,
+          0.1
+        ],
+        "l_hip": [
+          0.42,
+          0.56,
+          0.0
+        ],
+        "r_hip": [
+          0.46,
+          0.56,
+          0.0
+        ],
+        "l_knee": [
+          0.41,
+          0.72,
+          0.0
+        ],
+        "r_knee": [
+          0.47,
+          0.72,
+          0.0
+        ],
+        "l_ankle": [
+          0.4,
+          0.9,
+          0.0
+        ],
+        "r_ankle": [
+          0.48,
+          0.9,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "partner_b",
+      "position": [
+        0.06,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.56,
+          0.16,
+          0.05
+        ],
+        "l_shoulder": [
+          0.52,
+          0.28,
+          0.0
+        ],
+        "r_shoulder": [
+          0.6,
+          0.28,
+          0.0
+        ],
+        "l_elbow": [
+          0.48,
+          0.4,
+          0.05
+        ],
+        "r_elbow": [
+          0.64,
+          0.4,
+          0.05
+        ],
+        "l_wrist": [
+          0.46,
+          0.52,
+          0.1
+        ],
+        "r_wrist": [
+          0.66,
+          0.52,
+          0.1
+        ],
+        "l_hip": [
+          0.54,
+          0.56,
+          0.0
+        ],
+        "r_hip": [
+          0.58,
+          0.56,
+          0.0
+        ],
+        "l_knee": [
+          0.53,
+          0.72,
+          0.0
+        ],
+        "r_knee": [
+          0.59,
+          0.72,
+          0.0
+        ],
+        "l_ankle": [
+          0.52,
+          0.9,
+          0.0
+        ],
+        "r_ankle": [
+          0.6,
+          0.9,
+          0.0
+        ]
+      }
+    }
+  ],
+  "scene_rankings": {
+    "street": 0.85,
+    "studio": 0.9,
+    "wedding_garden": 0.5,
+    "garden_path": 0.45
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "id": "couple_standing_side_by_side",
+  "name": "Couple Standing Side by Side",
+  "standing": true,
+  "difficulty": "easy",
+  "tags": [
+    "outdoor",
+    "wedding",
+    "garden",
+    "couple",
+    "standing",
+    "portrait"
+  ],
+  "tips": [
+    "Shoulders aligned, slight inward lean",
+    "Hands can clasp or rest naturally",
+    "Eye contact with camera"
+  ],
+  "camera_cues": [
+    "eye-level",
+    "full body",
+    "natural light"
+  ],
+  "subject_count": 2,
+  "subjects": [
+    {
+      "label": "partner_a",
+      "position": [
+        -0.15,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.35,
+          0.15,
+          0.0
+        ],
+        "l_shoulder": [
+          0.32,
+          0.28,
+          0.0
+        ],
+        "r_shoulder": [
+          0.38,
+          0.28,
+          0.0
+        ],
+        "l_elbow": [
+          0.3,
+          0.4,
+          0.0
+        ],
+        "r_elbow": [
+          0.4,
+          0.4,
+          0.0
+        ],
+        "l_wrist": [
+          0.28,
+          0.52,
+          0.05
+        ],
+        "r_wrist": [
+          0.42,
+          0.52,
+          0.05
+        ],
+        "l_hip": [
+          0.33,
+          0.56,
+          0.0
+        ],
+        "r_hip": [
+          0.37,
+          0.56,
+          0.0
+        ],
+        "l_knee": [
+          0.32,
+          0.72,
+          0.0
+        ],
+        "r_knee": [
+          0.38,
+          0.72,
+          0.0
+        ],
+        "l_ankle": [
+          0.31,
+          0.9,
+          0.0
+        ],
+        "r_ankle": [
+          0.39,
+          0.9,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "partner_b",
+      "position": [
+        0.15,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.65,
+          0.15,
+          0.0
+        ],
+        "l_shoulder": [
+          0.62,
+          0.28,
+          0.0
+        ],
+        "r_shoulder": [
+          0.68,
+          0.28,
+          0.0
+        ],
+        "l_elbow": [
+          0.6,
+          0.4,
+          0.0
+        ],
+        "r_elbow": [
+          0.7,
+          0.4,
+          0.0
+        ],
+        "l_wrist": [
+          0.58,
+          0.52,
+          0.05
+        ],
+        "r_wrist": [
+          0.72,
+          0.52,
+          0.05
+        ],
+        "l_hip": [
+          0.63,
+          0.56,
+          0.0
+        ],
+        "r_hip": [
+          0.67,
+          0.56,
+          0.0
+        ],
+        "l_knee": [
+          0.62,
+          0.72,
+          0.0
+        ],
+        "r_knee": [
+          0.68,
+          0.72,
+          0.0
+        ],
+        "l_ankle": [
+          0.61,
+          0.9,
+          0.0
+        ],
+        "r_ankle": [
+          0.69,
+          0.9,
+          0.0
+        ]
+      }
+    }
+  ],
+  "scene_rankings": {
+    "wedding_garden": 0.9,
+    "garden_path": 0.85,
+    "street": 0.6,
+    "studio": 0.55
+  }
+}

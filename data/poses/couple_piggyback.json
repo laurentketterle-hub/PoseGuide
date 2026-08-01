@@ -1,0 +1,183 @@
+{
+  "id": "couple_piggyback",
+  "name": "Couple Piggyback Ride",
+  "standing": true,
+  "difficulty": "hard",
+  "tags": [
+    "outdoor",
+    "street",
+    "casual",
+    "couple",
+    "fun",
+    "action"
+  ],
+  "tips": [
+    "Carrier bends knees slightly, hands under partner's thighs",
+    "Rider wraps arms around carrier's neck",
+    "Big smiles, playful energy"
+  ],
+  "camera_cues": [
+    "full body",
+    "bright natural light",
+    "burst mode"
+  ],
+  "subject_count": 2,
+  "subjects": [
+    {
+      "label": "carrier",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.5,
+          0.3,
+          0.0
+        ],
+        "l_shoulder": [
+          0.42,
+          0.38,
+          0.0
+        ],
+        "r_shoulder": [
+          0.58,
+          0.38,
+          0.0
+        ],
+        "l_elbow": [
+          0.36,
+          0.5,
+          0.0
+        ],
+        "r_elbow": [
+          0.64,
+          0.5,
+          0.0
+        ],
+        "l_wrist": [
+          0.34,
+          0.62,
+          0.05
+        ],
+        "r_wrist": [
+          0.66,
+          0.62,
+          0.05
+        ],
+        "l_hip": [
+          0.46,
+          0.64,
+          0.0
+        ],
+        "r_hip": [
+          0.54,
+          0.64,
+          0.0
+        ],
+        "l_knee": [
+          0.44,
+          0.78,
+          0.05
+        ],
+        "r_knee": [
+          0.56,
+          0.78,
+          0.05
+        ],
+        "l_ankle": [
+          0.45,
+          0.94,
+          0.0
+        ],
+        "r_ankle": [
+          0.55,
+          0.94,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "rider",
+      "position": [
+        0.0,
+        0.15,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.5,
+          0.1,
+          0.0
+        ],
+        "l_shoulder": [
+          0.4,
+          0.2,
+          0.05
+        ],
+        "r_shoulder": [
+          0.6,
+          0.2,
+          0.05
+        ],
+        "l_elbow": [
+          0.32,
+          0.34,
+          0.05
+        ],
+        "r_elbow": [
+          0.68,
+          0.34,
+          0.05
+        ],
+        "l_wrist": [
+          0.36,
+          0.46,
+          0.0
+        ],
+        "r_wrist": [
+          0.64,
+          0.46,
+          0.0
+        ],
+        "l_hip": [
+          0.44,
+          0.44,
+          0.05
+        ],
+        "r_hip": [
+          0.56,
+          0.44,
+          0.05
+        ],
+        "l_knee": [
+          0.42,
+          0.6,
+          0.0
+        ],
+        "r_knee": [
+          0.58,
+          0.6,
+          0.0
+        ],
+        "l_ankle": [
+          0.43,
+          0.76,
+          0.0
+        ],
+        "r_ankle": [
+          0.57,
+          0.76,
+          0.0
+        ]
+      }
+    }
+  ],
+  "scene_rankings": {
+    "street": 0.9,
+    "garden_path": 0.7,
+    "wedding_garden": 0.4,
+    "studio": 0.35
+  }
+}

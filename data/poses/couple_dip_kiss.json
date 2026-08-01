@@ -1,0 +1,184 @@
+{
+  "id": "couple_dip_kiss",
+  "name": "Couple Dip Kiss",
+  "standing": false,
+  "difficulty": "hard",
+  "tags": [
+    "outdoor",
+    "wedding",
+    "garden",
+    "couple",
+    "romantic",
+    "dramatic",
+    "event"
+  ],
+  "tips": [
+    "Partner A dips back, supported by Partner B's arm",
+    "Partner B leans forward at waist",
+    "Kiss or near-kiss pose"
+  ],
+  "camera_cues": [
+    "three-quarter angle",
+    "include supporting arm",
+    "dramatic lighting"
+  ],
+  "subject_count": 2,
+  "subjects": [
+    {
+      "label": "dipped",
+      "position": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.48,
+          0.08,
+          -0.05
+        ],
+        "l_shoulder": [
+          0.38,
+          0.18,
+          0.0
+        ],
+        "r_shoulder": [
+          0.58,
+          0.18,
+          0.0
+        ],
+        "l_elbow": [
+          0.3,
+          0.32,
+          0.0
+        ],
+        "r_elbow": [
+          0.66,
+          0.28,
+          0.0
+        ],
+        "l_wrist": [
+          0.25,
+          0.45,
+          0.05
+        ],
+        "r_wrist": [
+          0.7,
+          0.38,
+          0.1
+        ],
+        "l_hip": [
+          0.44,
+          0.44,
+          0.0
+        ],
+        "r_hip": [
+          0.52,
+          0.44,
+          0.0
+        ],
+        "l_knee": [
+          0.4,
+          0.62,
+          0.0
+        ],
+        "r_knee": [
+          0.56,
+          0.58,
+          0.0
+        ],
+        "l_ankle": [
+          0.38,
+          0.8,
+          0.0
+        ],
+        "r_ankle": [
+          0.58,
+          0.76,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "dipping",
+      "position": [
+        0.02,
+        0.02,
+        0.0
+      ],
+      "joints": {
+        "nose": [
+          0.52,
+          0.22,
+          0.05
+        ],
+        "l_shoulder": [
+          0.44,
+          0.32,
+          0.0
+        ],
+        "r_shoulder": [
+          0.6,
+          0.34,
+          0.0
+        ],
+        "l_elbow": [
+          0.38,
+          0.44,
+          0.0
+        ],
+        "r_elbow": [
+          0.72,
+          0.3,
+          -0.1
+        ],
+        "l_wrist": [
+          0.35,
+          0.56,
+          0.0
+        ],
+        "r_wrist": [
+          0.78,
+          0.24,
+          0.0
+        ],
+        "l_hip": [
+          0.48,
+          0.52,
+          0.0
+        ],
+        "r_hip": [
+          0.54,
+          0.52,
+          0.0
+        ],
+        "l_knee": [
+          0.46,
+          0.7,
+          0.0
+        ],
+        "r_knee": [
+          0.56,
+          0.68,
+          0.0
+        ],
+        "l_ankle": [
+          0.47,
+          0.88,
+          0.0
+        ],
+        "r_ankle": [
+          0.57,
+          0.86,
+          0.0
+        ]
+      }
+    }
+  ],
+  "scene_rankings": {
+    "wedding_garden": 1.0,
+    "garden_path": 0.75,
+    "street": 0.35,
+    "studio": 0.55
+  }
+}
