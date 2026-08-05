@@ -44,3 +44,23 @@ def export_all_formats(poses, img_size, output_dir, prefix='pose'):
     results['coco'] = export_coco(poses, img_size, output_dir / f'{prefix}_coco.json')
     results['mediapipe'] = export_mediapipe(poses, output_dir / f'{prefix}_mp.json')
     return results
+
+
+def batch_export(poses_list, output_dir, format='coco', image_sizes=None):
+    results = []
+    for i, poses in enumerate(poses_list):
+        size = image_sizes[i] if image_sizes else (640, 480)
+        name = f'pose_{i:04d}'
+        if format == 'coco':
+            out = output_dir / f'{name}.json'
+            results.append(export_coco(poses, size, out))
+        elif format == 'mediapipe':
+            out = output_dir / f'{name}_mp.json'
+            results.append(export_mediapipe(poses, out))
+    return results
+
+def export_all_formats(poses, img_size, output_dir, prefix='pose'):
+    results = {}
+    results['coco'] = export_coco(poses, img_size, output_dir / f'{prefix}_coco.json')
+    results['mediapipe'] = export_mediapipe(poses, output_dir / f'{prefix}_mp.json')
+    return results
