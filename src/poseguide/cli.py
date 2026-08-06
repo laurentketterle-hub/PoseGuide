@@ -12,7 +12,6 @@ from poseguide.config import OUT_DIR
 from poseguide.data.loader import list_pose_files, list_scene_files, load_pose, load_scene
 from poseguide.models.catalog import get_pose_by_id
 from poseguide.guide.demo import PRESETS, run_demo
-from poseguide.guide.e2e import run_e2e
 from poseguide.guide.recommend import recommend_for_scene_path, recommend_for_tags
 from poseguide.guide.score import score_subject_against_pose
 from poseguide.render.overlay import (
@@ -92,64 +91,9 @@ def stats_cmd() -> None:
     )
 
 
-@app.command("e2e")
-def e2e_cmd(
-    tags: str = typer.Option(
-        "beach", "--tags", "-t", help="Comma-separated scene tags or preset name"
-    ),
-    image: Optional[Path] = typer.Option(
-        None, "--image", "-i", exists=True, dir_okay=False, help="Photo for joint extraction"
-    ),
-    top: int = typer.Option(3, "--top", "-k", min=1, max=20),
-    subject: Optional[Path] = typer.Option(
-        None, "--subject", exists=True, dir_okay=False, help="Pre-extracted subject JSON"
-    ),
-    no_png: bool = typer.Option(False, "--no-png", help="Skip PNG overlays (JSON + SVG only)"),
-) -> None:
-    """E2E product path: image → scene tags → pose list → coach → overlay image out.
-
-    Single command covering the full coaching pipeline from scene tags (or a
-    preset) through pose recommendations, composition coaching, SVG stick
-    figures, and overlay images — all written to a timestamped run directory.
-
-    Examples:
-
-        poseguide e2e -t beach
-
-        poseguide e2e -t urban --top 5
-
-        poseguide e2e -t "beach,outdoor,portrait" --image photo.jpg
-
-        poseguide e2e -t office --subject data/samples/subject_hands_in_pockets.json
-    """
-    try:
-        summary = run_e2e(
-            tags,
-            image=image,
-            top_k=top,
-            subject_json=subject,
-            render_png=not no_png,
-        )
-    except (FileNotFoundError, RuntimeError) as exc:
-        console.print(f"[red]{exc}[/red]")
-        raise typer.Exit(code=1) from exc
-    console.print(f"[green]E2E complete[/green]  run_dir={summary['run_dir']}")
-    console.print(f"Tags: {summary['tags']}")
-    console.print(f"Recommendations: {len(summary['recommendations'])}")
-    for a in summary.get("artifacts", []):
-        console.print(
-            f"  {a.get('pose_id'):30s} "
-            f"json={Path(a.get('overlay_json','')).name}  "
-            f"svg={Path(a.get('svg','')).name}  "
-            f"png={Path(a.get('overlay_png','')).name if a.get('overlay_png') else '--'}"
-        )
-    console.print(f"Log: {summary['log']}")
-    console.print_json(data=summary)
-
-
 @app.command("demo")
 def demo_cmd(preset: str = typer.Option("beach", "--preset", "-p")) -> None:
-    """End-to-end demo: preset scene tags → pose recommendations + SVG stick figure."""
+    """End-to-end demo: preset scene tags 鈫?pose recommendations + SVG stick figure."""
     try:
         result = run_demo(preset)
     except KeyError as exc:
