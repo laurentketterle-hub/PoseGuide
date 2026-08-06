@@ -21,12 +21,10 @@ def train_toy(epochs: int = 3) -> dict:
     for epoch in range(1, max(1, epochs) + 1):
         hits = 0
         for scene in scenes:
-            expected = set(str(x).lower() for x in (scene.get("expected_poses") or []))
+            expected = {str(x).lower() for x in (scene.get("expected_poses") or [])}
             recs = ranker.recommend(scene, top_k=3)
             top_ids = {str(r["pose_id"]).lower() for r in recs}
-            if expected and (top_ids & expected):
-                hits += 1
-            elif not expected and recs and recs[0]["score"] > 0:
+            if expected and (top_ids & expected) or not expected and recs and recs[0]["score"] > 0:
                 hits += 1
         acc = hits / len(scenes)
         history.append({"epoch": epoch, "hit_rate_at_3": round(acc, 4), "n": len(scenes)})

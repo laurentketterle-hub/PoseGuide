@@ -26,7 +26,7 @@ class FakeLandmark:
 def _fake_landmarks() -> list[FakeLandmark]:
     """A full 33-entry MediaPipe landmark list with known values at mapped indices."""
     landmarks = [FakeLandmark(0.0, 0.0, 0.0, 0.0) for _ in range(33)]
-    for index, key in MEDIAPIPE_LANDMARK_MAP.items():
+    for index in MEDIAPIPE_LANDMARK_MAP:
         # Encode the index into coordinates so we can assert exact mapping.
         landmarks[index] = FakeLandmark(
             x=index / 100.0,

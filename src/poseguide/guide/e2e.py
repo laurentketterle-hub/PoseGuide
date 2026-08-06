@@ -7,9 +7,8 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Optional
 
 from poseguide.config import OUT_DIR
 from poseguide.data.extract import extract_pose
@@ -52,8 +51,8 @@ def _ensure_demo_image(work_dir: Path) -> Path:
     h, w = 120, 160
     arr = np.zeros((h, w, 3), dtype=np.uint8)
     sq = 20
-    arr[0:: sq * 2, 0:: sq * 2] = 48
-    arr[sq:: sq * 2, sq:: sq * 2] = 48
+    arr[0 :: sq * 2, 0 :: sq * 2] = 48
+    arr[sq :: sq * 2, sq :: sq * 2] = 48
     img = Image.fromarray(arr, mode="RGB")
     img.save(str(path))
     return path
@@ -61,7 +60,7 @@ def _ensure_demo_image(work_dir: Path) -> Path:
 
 def _make_run_dir(tags_text: str) -> Path:
     """Create a timestamped output directory for one e2e run."""
-    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    ts = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     slug = tags_text.replace(",", "_").replace(" ", "").strip("_")[:40] or "adhoc"
     run_dir = OUT_DIR / f"e2e_{slug}_{ts}"
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -71,9 +70,9 @@ def _make_run_dir(tags_text: str) -> Path:
 def run_e2e(
     tags: str,
     *,
-    image: Optional[Path] = None,
+    image: Path | None = None,
     top_k: int = 3,
-    subject_json: Optional[Path] = None,
+    subject_json: Path | None = None,
     render_png: bool = True,
 ) -> dict:
     """Execute the full E2E product path and return a summary dict.
@@ -119,16 +118,14 @@ def run_e2e(
     _log(f"e2e start  tags={tag_str}  run_dir={run_dir}")
 
     # --- image / subject --------------------------------------------------------
-    resolved_image: Optional[Path] = None
-    subject_payload: Optional[dict] = None
-    subject_json_path: Optional[Path] = None
+    resolved_image: Path | None = None
+    subject_payload: dict | None = None
+    subject_json_path: Path | None = None
 
     if subject_json is not None:
         subject_payload = json.loads(subject_json.read_text(encoding="utf-8"))
         subject_json_path = run_dir / "subject.json"
-        subject_json_path.write_text(
-            json.dumps(subject_payload, indent=2) + "\n", encoding="utf-8"
-        )
+        subject_json_path.write_text(json.dumps(subject_payload, indent=2) + "\n", encoding="utf-8")
         _log(f"subject  from={subject_json}")
     elif image is not None and image.exists():
         resolved_image = image
@@ -138,7 +135,7 @@ def run_e2e(
             subject_json_path.write_text(
                 json.dumps(subject_payload, indent=2) + "\n", encoding="utf-8"
             )
-            _log(f"extract  joints={len(subject_payload.get('joints',{}))}  from={image}")
+            _log(f"extract  joints={len(subject_payload.get('joints', {}))}  from={image}")
         except (RuntimeError, FileNotFoundError) as exc:
             _log(f"extract  SKIP ({exc})")
     else:
@@ -179,7 +176,7 @@ def run_e2e(
                     "coach": coach,
                 }
             )
-            _log(f"coach  {pose_id}  tips={len(coach.get('composition',{}).get('tips',[]))}")
+            _log(f"coach  {pose_id}  tips={len(coach.get('composition', {}).get('tips', []))}")
         except KeyError:
             _log(f"coach  {pose_id}  SKIP (unknown pose)")
 

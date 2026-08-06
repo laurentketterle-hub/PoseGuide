@@ -4,7 +4,6 @@ from pathlib import Path
 
 from poseguide.models.catalog import get_pose_by_id
 
-
 # Stick figure edges (joint name pairs)
 EDGES = [
     ("nose", "l_shoulder"),
@@ -45,7 +44,7 @@ def render_pose_svg(pose_id: str, out_path: Path, *, width: int = 360, height: i
                 f'stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>'
             )
     dots = []
-    for name, xyz in joints.items():
+    for xyz in joints.values():
         if not isinstance(xyz, (list, tuple)) or len(xyz) < 2:
             continue
         x, y = float(xyz[0]) * width, float(xyz[1]) * height

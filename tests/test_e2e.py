@@ -21,7 +21,7 @@ def test_e2e_cli_help() -> None:
 
 def test_e2e_default_beach_preset(tmp_path: Path, monkeypatch) -> None:
     """Default invocation (beach preset) completes and writes artifacts."""
-    out_dir = tmp_path / "data" / "out"
+    tmp_path / "data" / "out"
     monkeypatch.setenv("POSEGUIDE_DATA_DIR", str(tmp_path / "data"))
 
     # We need the real pose catalog available.  The CLI locates data relative
@@ -89,9 +89,7 @@ def test_e2e_with_subject_json() -> None:
     assert summary["kind"] == "poseguide.e2e.v1"
     assert len(summary["artifacts"]) == 2
     # Coach results should include subject_score
-    coach_has_score = any(
-        "subject_score" in c.get("coach", {}) for c in summary["coach"]
-    )
+    coach_has_score = any("subject_score" in c.get("coach", {}) for c in summary["coach"])
     assert coach_has_score, "Expected subject_score in coach bundle"
 
 

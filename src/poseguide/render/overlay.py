@@ -47,8 +47,8 @@ class VisionUnavailableError(RuntimeError):
 
 def _require_cv2():
     try:
-        import cv2  # noqa: PLC0415
-        import numpy as np  # noqa: PLC0415
+        import cv2
+        import numpy as np
     except ImportError as exc:  # pragma: no cover - exercised via monkeypatch
         raise VisionUnavailableError(
             "PNG overlay needs the vision extra: pip install 'poseguide[vision]'"
@@ -62,7 +62,7 @@ def _joint_points(joints: dict, w: int, h: int) -> dict[str, tuple[int, int]]:
     for name, xyz in (joints or {}).items():
         if not isinstance(xyz, (list, tuple)) or len(xyz) < 2:
             continue
-        pts[name] = (int(round(float(xyz[0]) * w)), int(round(float(xyz[1]) * h)))
+        pts[name] = (round(float(xyz[0]) * w), round(float(xyz[1]) * h))
     return pts
 
 

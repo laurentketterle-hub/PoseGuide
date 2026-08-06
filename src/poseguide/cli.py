@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
 
 import typer
 from rich.console import Console
@@ -10,17 +9,17 @@ from rich.table import Table
 from poseguide import __version__
 from poseguide.config import OUT_DIR
 from poseguide.data.loader import list_pose_files, list_scene_files, load_pose, load_scene
-from poseguide.models.catalog import get_pose_by_id
+from poseguide.eval.metrics import evaluate_scenes
 from poseguide.guide.demo import PRESETS, run_demo
 from poseguide.guide.recommend import recommend_for_scene_path, recommend_for_tags
 from poseguide.guide.score import score_subject_against_pose
+from poseguide.models.catalog import get_pose_by_id
 from poseguide.render.overlay import (
     VisionUnavailableError,
     render_overlay_png,
     write_guidance_overlay,
 )
 from poseguide.render.svg import render_pose_svg
-from poseguide.eval.metrics import evaluate_scenes
 from poseguide.train.toy_train import train_toy
 
 app = typer.Typer(
@@ -43,7 +42,7 @@ console = Console()
 POSE_DIFFICULTIES = ("easy", "medium", "hard")
 
 
-def _normalize_difficulty(value: Optional[str]) -> Optional[str]:
+def _normalize_difficulty(value: str | None) -> str | None:
     if value is None:
         return None
     difficulty = value.strip().lower()
@@ -53,7 +52,7 @@ def _normalize_difficulty(value: Optional[str]) -> Optional[str]:
     return difficulty
 
 
-def _matches_pose_filters(pose: dict, *, tag: Optional[str], difficulty: Optional[str]) -> bool:
+def _matches_pose_filters(pose: dict, *, tag: str | None, difficulty: str | None) -> bool:
     pose_tags = {str(value).strip().lower() for value in (pose.get("tags") or [])}
     pose_difficulty = str(pose.get("difficulty") or "medium").strip().lower()
     return (tag is None or tag in pose_tags) and (
@@ -106,8 +105,8 @@ def demo_cmd(preset: str = typer.Option("beach", "--preset", "-p")) -> None:
 
 @poses_app.command("list")
 def poses_list(
-    tag: Optional[str] = typer.Option(None, "--tag", "-t", help="Filter by an exact tag."),
-    difficulty: Optional[str] = typer.Option(
+    tag: str | None = typer.Option(None, "--tag", "-t", help="Filter by an exact tag."),
+    difficulty: str | None = typer.Option(
         None, "--difficulty", "-d", help="Filter by difficulty: easy, medium, hard."
     ),
 ) -> None:
@@ -161,7 +160,7 @@ def poses_show(
 @poses_app.command("svg")
 def poses_svg(
     pose: str = typer.Option(..., "--pose", "-p"),
-    out: Optional[Path] = typer.Option(None, "--out", "-o"),
+    out: Path | None = typer.Option(None, "--out", "-o"),
 ) -> None:
     out_path = out or (OUT_DIR / f"{pose}.svg")
     try:
@@ -175,8 +174,8 @@ def poses_svg(
 @poses_app.command("overlay")
 def poses_overlay(
     pose: str = typer.Option(..., "--pose", "-p"),
-    out: Optional[Path] = typer.Option(None, "--out", "-o"),
-    background: Optional[Path] = typer.Option(None, "--bg", exists=True, dir_okay=False),
+    out: Path | None = typer.Option(None, "--out", "-o"),
+    background: Path | None = typer.Option(None, "--bg", exists=True, dir_okay=False),
     width: int = typer.Option(360, "--width", min=64, max=4096),
     height: int = typer.Option(480, "--height", min=64, max=4096),
 ) -> None:
@@ -213,13 +212,13 @@ def scenes_list() -> None:
 
 @guide_app.command("recommend")
 def guide_recommend(
-    scene: Optional[Path] = typer.Option(None, "--scene", "-s", exists=True, dir_okay=False),
-    tags: Optional[str] = typer.Option(None, "--tags", "-t"),
+    scene: Path | None = typer.Option(None, "--scene", "-s", exists=True, dir_okay=False),
+    tags: str | None = typer.Option(None, "--tags", "-t"),
     top: int = typer.Option(3, "--top", "-k", min=1, max=20),
-    subject: Optional[Path] = typer.Option(None, "--subject", exists=True, dir_okay=False),
-    overlay_out: Optional[Path] = typer.Option(None, "--overlay-out"),
+    subject: Path | None = typer.Option(None, "--subject", exists=True, dir_okay=False),
+    overlay_out: Path | None = typer.Option(None, "--overlay-out"),
     svg: bool = typer.Option(True, "--svg/--no-svg"),
-    difficulty: Optional[str] = typer.Option(
+    difficulty: str | None = typer.Option(
         None, "--difficulty", "-d", help="Filter by difficulty: easy, medium, hard"
     ),
 ) -> None:
@@ -274,7 +273,7 @@ def guide_composition(pose: str = typer.Option(..., "--pose", "-p")) -> None:
 @guide_app.command("coach")
 def guide_coach(
     pose: str = typer.Option(..., "--pose", "-p"),
-    subject: Optional[Path] = typer.Option(None, "--subject", "-i", exists=True, dir_okay=False),
+    subject: Path | None = typer.Option(None, "--subject", "-i", exists=True, dir_okay=False),
 ) -> None:
     """Coach mode: composition tips + target SVG (+ optional subject score)."""
     from poseguide.guide.composition import coach_bundle
@@ -300,12 +299,13 @@ def guide_demo(preset: str = typer.Option("beach", "--preset", "-p")) -> None:
 def eval_scenes(
     top: int = typer.Option(3, "--top", "-k", min=1, max=20),
     table: bool = typer.Option(True, "--table/--json", help="Rich per-scene table vs raw JSON"),
-    markdown: Optional[Path] = typer.Option(
+    markdown: Path | None = typer.Option(
         None, "--md", "--markdown", help="Export results as Markdown file"
     ),
 ) -> None:
     """Evaluate hit@k / precision / recall over labeled scenes."""
     import json
+
     from poseguide.config import RUNS_DIR
 
     report = evaluate_scenes(top_k=top)
@@ -367,11 +367,11 @@ def _build_markdown_report(report: dict, top: int) -> str:
 
 @poses_app.command("search")
 def poses_search(
-    query: Optional[str] = typer.Argument(
+    query: str | None = typer.Argument(
         None, help="Optional substring over id/name/tags/tips/camera cues"
     ),
-    tag: Optional[str] = typer.Option(None, "--tag", "-t", help="Filter by an exact tag."),
-    difficulty: Optional[str] = typer.Option(
+    tag: str | None = typer.Option(None, "--tag", "-t", help="Filter by an exact tag."),
+    difficulty: str | None = typer.Option(
         None, "--difficulty", "-d", help="Filter by difficulty: easy, medium, hard."
     ),
     limit: int = typer.Option(15, "--limit", "-n", min=1, max=50),

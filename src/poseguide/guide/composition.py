@@ -90,9 +90,9 @@ def coach_bundle(pose_id: str, subject_path=None) -> dict:
     """Composition report + optional subject score for side-by-side coaching."""
     from pathlib import Path
 
+    from poseguide.config import OUT_DIR
     from poseguide.guide.score import score_subject_against_pose
     from poseguide.render.svg import render_pose_svg
-    from poseguide.config import OUT_DIR
 
     comp = composition_report(pose_id)
     svg_path = render_pose_svg(pose_id, OUT_DIR / f"coach_{pose_id}.svg")

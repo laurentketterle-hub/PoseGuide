@@ -5,7 +5,6 @@ from pathlib import Path
 
 from poseguide.data.loader import list_pose_files, list_scene_files, load_pose, load_scene
 
-
 ROOT = Path(__file__).resolve().parents[1]
 WEB_DIR = ROOT / "web"
 

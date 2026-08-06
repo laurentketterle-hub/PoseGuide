@@ -19,7 +19,7 @@ def recommend_for_scene_path(
     recs = ranker.recommend(scene, top_k=top_k, subject_vector=subject_vec)
     return {
         "scene_id": scene.get("id"),
-        "scene_tags": sorted(set(str(t).lower() for t in (scene.get("tags") or []))),
+        "scene_tags": sorted({str(t).lower() for t in (scene.get("tags") or [])}),
         "recommendations": recs,
     }
 

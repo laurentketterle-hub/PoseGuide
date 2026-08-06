@@ -14,8 +14,9 @@ wraps MediaPipe Pose, imported lazily so the ``vision`` extra stays optional.
 from __future__ import annotations
 
 import json
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Protocol, Sequence
+from typing import Protocol
 
 # Repo joint schema (matches loader.joints_to_vector order).
 JOINT_KEYS: tuple[str, ...] = (

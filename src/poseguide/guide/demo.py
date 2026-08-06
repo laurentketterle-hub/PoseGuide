@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+from poseguide.config import OUT_DIR
 from poseguide.guide.recommend import recommend_for_tags
 from poseguide.render.overlay import write_guidance_overlay
 from poseguide.render.svg import render_pose_svg
-from poseguide.config import OUT_DIR
 
 PRESETS = {
     "beach": "beach,outdoor,golden_hour,portrait,daylight",

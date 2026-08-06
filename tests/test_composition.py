@@ -1,4 +1,4 @@
-from poseguide.guide.composition import composition_report, coach_bundle
+from poseguide.guide.composition import coach_bundle, composition_report
 
 
 def test_composition_power_stance() -> None:

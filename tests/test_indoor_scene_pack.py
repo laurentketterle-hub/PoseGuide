@@ -7,7 +7,6 @@ import pytest
 from poseguide.data.loader import load_scene
 from poseguide.guide.recommend import recommend_for_scene_path
 
-
 SCENES_DIR = Path(__file__).resolve().parents[1] / "data" / "scenes"
 SCENE_CASES = (
     ("indoor_loft.json", "indoor_loft"),
