@@ -428,6 +428,32 @@ def train_toy_cmd(epochs: int = typer.Option(3, "--epochs", "-e", min=1, max=50)
     console.print(f"Report: {report['report_path']}")
 
 
+@app.command("e2e")
+def e2e_cmd(
+    tags: str = typer.Option(..., "--tags", "-t", help="Comma-separated scene tags or preset name"),
+    image: Path | None = typer.Option(None, "--image", "-i", exists=True, dir_okay=False),
+    top: int = typer.Option(3, "--top", "-k", min=1, max=20),
+    subject: Path | None = typer.Option(None, "--subject", exists=True, dir_okay=False),
+    png: bool = typer.Option(True, "--png/--no-png", help="Render PNG overlay"),
+) -> None:
+    """End-to-end product path: scene tags → pose list → coach → overlay."""
+    from poseguide.guide.e2e import run_e2e
+
+    try:
+        summary = run_e2e(
+            tags,
+            image=image,
+            top_k=top,
+            subject_json=subject,
+            render_png=png,
+        )
+        console.print_json(data=summary)
+        console.print(f"[green]Done[/green] {summary['run_dir']}")
+    except (RuntimeError, FileNotFoundError) as exc:
+        console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+
+
 @data_app.command("extract")
 def data_extract(
     image: Path = typer.Option(..., "--image", "-i", exists=True, dir_okay=False),
