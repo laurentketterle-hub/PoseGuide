@@ -586,7 +586,10 @@ def data_datasets(
     from poseguide.data.datasets import list_datasets
     ds_list = list_datasets(domain=domain)
     table = Table(title=f"Public datasets ({len(ds_list)})")
-    table.add_column("Name"); table.add_column("Domain"); table.add_column("License"); table.add_column("Keypoints")
+    table.add_column("Name")
+    table.add_column("Domain")
+    table.add_column("License")
+    table.add_column("Keypoints")
     for d in ds_list:
         table.add_row(d["name"], d["domain"], d["license"], d["keypoints"])
     console.print(table)

@@ -16,6 +16,7 @@ DATASETS = [
 ]
 
 def list_datasets(*, domain=None):
-    if domain is None: return list(DATASETS)
+    if domain is None:
+        return list(DATASETS)
     q = domain.lower()
     return [d for d in DATASETS if q in d["domain"].lower()]
