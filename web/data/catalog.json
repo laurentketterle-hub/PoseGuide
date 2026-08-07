@@ -441,6 +441,100 @@
     },
     {
       "camera_cues": [
+        "pure side profile, subject in right or left third",
+        "horizon on lower third line",
+        "golden hour or soft daylight",
+        "shallow depth of field separates subject from sea"
+      ],
+      "id": "beach_walk_side_profile",
+      "joints": {
+        "l_ankle": [
+          0.65,
+          0.93,
+          0.0
+        ],
+        "l_elbow": [
+          0.64,
+          0.42,
+          0.0
+        ],
+        "l_hip": [
+          0.68,
+          0.54,
+          0.0
+        ],
+        "l_knee": [
+          0.66,
+          0.73,
+          0.0
+        ],
+        "l_shoulder": [
+          0.67,
+          0.26,
+          0.0
+        ],
+        "l_wrist": [
+          0.62,
+          0.56,
+          0.0
+        ],
+        "nose": [
+          0.7,
+          0.12,
+          0.0
+        ],
+        "r_ankle": [
+          0.72,
+          0.92,
+          0.0
+        ],
+        "r_elbow": [
+          0.76,
+          0.42,
+          0.0
+        ],
+        "r_hip": [
+          0.72,
+          0.54,
+          0.0
+        ],
+        "r_knee": [
+          0.72,
+          0.73,
+          0.0
+        ],
+        "r_shoulder": [
+          0.73,
+          0.26,
+          0.0
+        ],
+        "r_wrist": [
+          0.78,
+          0.56,
+          0.0
+        ]
+      },
+      "name": "Beach Walk Side Profile",
+      "standing": true,
+      "tags": [
+        "beach",
+        "outdoor",
+        "walk",
+        "side_view",
+        "casual",
+        "daylight",
+        "golden_hour"
+      ],
+      "tips": [
+        "walk along shoreline, mid-stride capture",
+        "look forward or slightly toward horizon",
+        "arms swing naturally at sides",
+        "barefoot or casual sandals",
+        "soft breeze adds movement to hair/clothing"
+      ]
+    },
+    {
+      "camera_cues": [
         "full body 3/4; street background bokeh optional"
       ],
       "id": "bike_lean",
@@ -1048,6 +1142,100 @@
     },
     {
       "camera_cues": [
+        "mid-range or wide shot",
+        "side angle or three-quarter view",
+        "natural light, golden hour ideal",
+        "background slightly defocused"
+      ],
+      "id": "couple_walk_holding_hands",
+      "joints": {
+        "l_ankle": [
+          0.43,
+          0.93,
+          0.0
+        ],
+        "l_elbow": [
+          0.38,
+          0.44,
+          0.0
+        ],
+        "l_hip": [
+          0.45,
+          0.56,
+          0.0
+        ],
+        "l_knee": [
+          0.44,
+          0.74,
+          0.0
+        ],
+        "l_shoulder": [
+          0.43,
+          0.28,
+          0.0
+        ],
+        "l_wrist": [
+          0.36,
+          0.56,
+          0.0
+        ],
+        "nose": [
+          0.5,
+          0.12,
+          0.0
+        ],
+        "r_ankle": [
+          0.57,
+          0.92,
+          0.0
+        ],
+        "r_elbow": [
+          0.62,
+          0.42,
+          0.0
+        ],
+        "r_hip": [
+          0.55,
+          0.55,
+          0.0
+        ],
+        "r_knee": [
+          0.56,
+          0.73,
+          0.0
+        ],
+        "r_shoulder": [
+          0.57,
+          0.28,
+          0.0
+        ],
+        "r_wrist": [
+          0.48,
+          0.52,
+          0.0
+        ]
+      },
+      "name": "Couple Walk Holding Hands",
+      "standing": true,
+      "tags": [
+        "outdoor",
+        "duo",
+        "walk",
+        "romantic",
+        "casual",
+        "daylight",
+        "urban"
+      ],
+      "tips": [
+        "walk naturally, stride in sync",
+        "inner hands clasped at waist level",
+        "outer arms swing naturally",
+        "look toward each other or forward",
+        "relaxed shoulders, genuine smiles"
+      ]
+    },
+    {
+      "camera_cues": [
         "waist-up; even studio light"
       ],
       "id": "cross_arms_stand",
@@ -1392,6 +1580,98 @@
       "tips": [
         "drop into a low crouch; one knee lower; hands near shoe laces",
         "keep spine long; eyes up toward camera or down at the shoe"
+      ]
+    },
+    {
+      "camera_cues": [
+        "medium full-body shot",
+        "slightly elevated angle to show desk context",
+        "natural office lighting"
+      ],
+      "id": "desk_standup_stretch",
+      "joints": {
+        "l_ankle": [
+          0.44,
+          0.94,
+          0.0
+        ],
+        "l_elbow": [
+          0.36,
+          0.15,
+          0.0
+        ],
+        "l_hip": [
+          0.46,
+          0.55,
+          0.0
+        ],
+        "l_knee": [
+          0.45,
+          0.75,
+          0.0
+        ],
+        "l_shoulder": [
+          0.44,
+          0.24,
+          0.0
+        ],
+        "l_wrist": [
+          0.4,
+          0.06,
+          0.0
+        ],
+        "nose": [
+          0.5,
+          0.1,
+          0.0
+        ],
+        "r_ankle": [
+          0.56,
+          0.94,
+          0.0
+        ],
+        "r_elbow": [
+          0.64,
+          0.15,
+          0.0
+        ],
+        "r_hip": [
+          0.54,
+          0.55,
+          0.0
+        ],
+        "r_knee": [
+          0.55,
+          0.75,
+          0.0
+        ],
+        "r_shoulder": [
+          0.56,
+          0.24,
+          0.0
+        ],
+        "r_wrist": [
+          0.6,
+          0.06,
+          0.0
+        ]
+      },
+      "name": "Desk Stand-up Stretch",
+      "standing": true,
+      "tags": [
+        "office",
+        "indoor",
+        "ergonomics",
+        "stretch",
+        "standing",
+        "casual"
+      ],
+      "tips": [
+        "stand behind or beside desk",
+        "reach arms overhead, clasp hands",
+        "arch slightly backward from mid-back",
+        "keep feet hip-width apart",
+        "breathe deeply during hold"
       ]
     },
     {
@@ -5931,6 +6211,100 @@
     },
     {
       "camera_cues": [
+        "three-quarter or front angle",
+        "eye-level or slight low angle for power",
+        "studio lighting: key + fill + rim",
+        "clean or minimal background"
+      ],
+      "id": "studio_hand_on_hip_power",
+      "joints": {
+        "l_ankle": [
+          0.44,
+          0.93,
+          0.0
+        ],
+        "l_elbow": [
+          0.34,
+          0.44,
+          0.0
+        ],
+        "l_hip": [
+          0.46,
+          0.55,
+          0.0
+        ],
+        "l_knee": [
+          0.45,
+          0.74,
+          0.0
+        ],
+        "l_shoulder": [
+          0.44,
+          0.26,
+          0.0
+        ],
+        "l_wrist": [
+          0.4,
+          0.54,
+          0.0
+        ],
+        "nose": [
+          0.5,
+          0.12,
+          0.0
+        ],
+        "r_ankle": [
+          0.56,
+          0.93,
+          0.0
+        ],
+        "r_elbow": [
+          0.66,
+          0.38,
+          0.0
+        ],
+        "r_hip": [
+          0.54,
+          0.55,
+          0.0
+        ],
+        "r_knee": [
+          0.55,
+          0.74,
+          0.0
+        ],
+        "r_shoulder": [
+          0.56,
+          0.26,
+          0.0
+        ],
+        "r_wrist": [
+          0.6,
+          0.52,
+          0.0
+        ]
+      },
+      "name": "Studio Hand-on-Hip Power Pose",
+      "standing": true,
+      "tags": [
+        "studio",
+        "indoor",
+        "portrait",
+        "confident",
+        "power",
+        "business",
+        "professional"
+      ],
+      "tips": [
+        "stand tall, feet shoulder-width apart",
+        "place one hand firmly on hip, elbow out",
+        "other arm relaxed at side or in pocket",
+        "chin slightly up, confident gaze",
+        "weight evenly distributed"
+      ]
+    },
+    {
+      "camera_cues": [
         "full body 3/4; low street angle optional"
       ],
       "id": "umbrella_walk",
@@ -6626,9 +7000,129 @@
         "knee opens to side without twisting hips",
         "hands at heart or overhead with soft shoulders"
       ]
+    },
+    {
+      "camera_cues": [
+        "side profile camera angle",
+        "full body in frame",
+        "even, diffused studio lighting",
+        "plain background preferred"
+      ],
+      "id": "yoga_warrior_ii_side",
+      "joints": {
+        "l_ankle": [
+          0.5,
+          0.93,
+          0.0
+        ],
+        "l_elbow": [
+          0.52,
+          0.26,
+          0.0
+        ],
+        "l_hip": [
+          0.63,
+          0.54,
+          0.0
+        ],
+        "l_knee": [
+          0.55,
+          0.72,
+          0.0
+        ],
+        "l_shoulder": [
+          0.62,
+          0.26,
+          0.0
+        ],
+        "l_wrist": [
+          0.44,
+          0.26,
+          0.0
+        ],
+        "nose": [
+          0.65,
+          0.12,
+          0.0
+        ],
+        "r_ankle": [
+          0.67,
+          0.93,
+          0.0
+        ],
+        "r_elbow": [
+          0.82,
+          0.26,
+          0.0
+        ],
+        "r_hip": [
+          0.67,
+          0.54,
+          0.0
+        ],
+        "r_knee": [
+          0.67,
+          0.76,
+          0.0
+        ],
+        "r_shoulder": [
+          0.68,
+          0.26,
+          0.0
+        ],
+        "r_wrist": [
+          0.9,
+          0.26,
+          0.0
+        ]
+      },
+      "name": "Yoga Warrior II Side",
+      "standing": true,
+      "tags": [
+        "fitness",
+        "yoga",
+        "indoor",
+        "studio",
+        "wellness",
+        "side_view"
+      ],
+      "tips": [
+        "front knee bent at 90 degrees, aligned over ankle",
+        "back leg straight, foot turned out 90 degrees",
+        "arms extended horizontally, parallel to floor",
+        "gaze forward over front hand",
+        "engage core, square hips",
+        "hold for 5-10 breaths"
+      ]
     }
   ],
   "scenes": [
+    {
+      "composition": {
+        "horizon": "mid",
+        "subject_placement": "center"
+      },
+      "expected_poses": [
+        "walk_toward_camera",
+        "looking_away",
+        "umbrella_walk"
+      ],
+      "id": "autumn_park_path",
+      "mood": [
+        "warm",
+        "peaceful",
+        "nostalgic"
+      ],
+      "name": "Autumn Park Path",
+      "tags": [
+        "outdoor",
+        "park",
+        "daylight",
+        "nature",
+        "romantic",
+        "autumn"
+      ]
+    },
     {
       "composition": {
         "horizon": "lower_third",
@@ -6721,6 +7215,32 @@
         "balcony",
         "cityscape",
         "evening",
+        "outdoor"
+      ]
+    },
+    {
+      "composition": {
+        "horizon": "upper_third",
+        "subject_placement": "left_third"
+      },
+      "expected_poses": [
+        "lean_wall_casual",
+        "over_shoulder_look",
+        "night_city_lean_against_rail"
+      ],
+      "id": "city_rooftop_night",
+      "mood": [
+        "mysterious",
+        "chic",
+        "cinematic"
+      ],
+      "name": "City Rooftop Night",
+      "tags": [
+        "urban",
+        "night",
+        "cityscape",
+        "portrait",
+        "neon",
         "outdoor"
       ]
     },
@@ -6914,6 +7434,32 @@
         "colorful",
         "daylight",
         "candid"
+      ]
+    },
+    {
+      "composition": {
+        "horizon": "lower_third",
+        "subject_placement": "center"
+      },
+      "expected_poses": [
+        "power_stance",
+        "arms_raised",
+        "hands_on_hips_hero"
+      ],
+      "id": "mountain_summit",
+      "mood": [
+        "epic",
+        "triumphant",
+        "free"
+      ],
+      "name": "Mountain Summit Vista",
+      "tags": [
+        "outdoor",
+        "mountain",
+        "daylight",
+        "adventure",
+        "landscape",
+        "hero"
       ]
     },
     {
@@ -7133,6 +7679,7 @@
     "action",
     "adventure",
     "athletic",
+    "autumn",
     "balance",
     "balcony",
     "beach",
@@ -7145,6 +7692,7 @@
     "casual",
     "celebration",
     "ceremony",
+    "chic",
     "chin",
     "cinematic",
     "city",
@@ -7164,11 +7712,14 @@
     "directional",
     "doorway",
     "dramatic",
+    "duo",
     "dynamic",
     "edgy",
     "editorial",
     "emotional",
     "energy",
+    "epic",
+    "ergonomics",
     "evening",
     "event",
     "fashion",
@@ -7178,6 +7729,7 @@
     "flowers",
     "forest",
     "formal",
+    "free",
     "full body",
     "full-body",
     "full_body",
@@ -7189,11 +7741,13 @@
     "grounded",
     "half body",
     "headshot",
+    "hero",
     "home",
     "indoor",
     "intimate",
     "jump",
     "kneeling",
+    "landscape",
     "lean",
     "lifestyle",
     "loft",
@@ -7204,14 +7758,19 @@
     "moody",
     "morning",
     "motion",
+    "mountain",
+    "mysterious",
     "natural",
     "natural light",
     "natural-light",
     "nature",
     "neon",
     "night",
+    "nostalgic",
     "office",
     "outdoor",
+    "park",
+    "peaceful",
     "phone",
     "portrait",
     "power",
@@ -7226,6 +7785,7 @@
     "running",
     "seated",
     "selfie",
+    "side_view",
     "silhouette",
     "soft",
     "soft light",
@@ -7236,6 +7796,7 @@
     "stairs",
     "standing",
     "street",
+    "stretch",
     "studio",
     "study",
     "thoughtful",
@@ -7243,12 +7804,15 @@
     "trail",
     "transit",
     "travel",
+    "triumphant",
     "urban",
     "waist-up",
+    "walk",
     "wall",
     "warm",
     "warm-light",
     "water",
+    "wellness",
     "wide",
     "window",
     "work",
