@@ -1,9 +1,11 @@
 """Export pose joints to COCO / MediaPipe-compatible formats (#22)."""
 from __future__ import annotations
+
 import json
 from pathlib import Path
-from poseguide.data.loader import list_pose_files, load_pose
+
 from poseguide.config import OUT_DIR
+from poseguide.data.loader import list_pose_files, load_pose
 
 # MediaPipe Pose landmark mapping (33 landmarks)
 MEDIAPIPE_NAMES = [
@@ -51,6 +53,5 @@ def export_all_poses(fmt: str = "mediapipe", out_dir: Path | None = None):
         else:
             data = pose_to_mediapipe(pose)
         out_path = out_dir / f"{pose['id']}_{fmt}.json"
-        out_path.write_text(json.dumps(data, indent=2) + "
-", encoding="utf-8")
+        out_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     return out_dir

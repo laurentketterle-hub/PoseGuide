@@ -1,5 +1,6 @@
 """Scene tagger: heuristic/CV stub for background tags (#6)."""
 from __future__ import annotations
+
 from pathlib import Path
 
 PRESET_TAGS = {

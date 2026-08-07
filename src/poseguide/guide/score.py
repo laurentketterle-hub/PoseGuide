@@ -1,9 +1,12 @@
 """Score subject against target pose, with optional MediaPipe path (#34)."""
 from __future__ import annotations
+
 from pathlib import Path
+
 from poseguide.data.loader import load_subject
 from poseguide.models.catalog import get_pose_by_id
 from poseguide.models.toy import ToyPoseRanker
+
 
 def score_subject_against_pose(pose_id: str, subject_path: Path, *, use_mediapipe: bool = False) -> dict:
     """Score a subject JSON against a catalog pose. Falls back to toy (cosine) when MediaPipe unavailable."""

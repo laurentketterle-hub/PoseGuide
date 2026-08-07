@@ -1,10 +1,13 @@
 """Embedding-based ranker: numpy learning-to-rank beyond Jaccard (#8)."""
 from __future__ import annotations
-import json, math
+
+import json
 from pathlib import Path
+
 import numpy as np
-from poseguide.data.loader import load_pose, list_pose_files, scene_tag_set
-from poseguide.config import RUNS_DIR
+
+from poseguide.data.loader import list_pose_files, load_pose, scene_tag_set
+
 
 class EmbedPoseRanker:
     """Trainable ranker: cosine similarity over tag-embedding vectors + joint priors."""
@@ -50,7 +53,7 @@ class EmbedPoseRanker:
                 joint_score = max(0.0, min(1.0, (cos + 1.0) / 2.0))
             score = 0.65 * tag_sim + 0.35 * joint_score
             ranked.append({"pose_id": pose.get("id"), "name": pose.get("name"), "score": round(float(score), 4),
-                           "tag_overlap": sorted(set(str(t).lower() for t in (pose.get("tags") or [])) & set(str(t).lower() for t in (scene.get("tags") or []))),
+                           "tag_overlap": sorted({str(t).lower() for t in (pose.get("tags") or [])} & {str(t).lower() for t in (scene.get("tags") or [])}),
                            "tips": pose.get("tips") or [], "camera_cues": pose.get("camera_cues") or []})
         ranked.sort(key=lambda r: r["score"], reverse=True)
         return ranked[:max(1, top_k)]

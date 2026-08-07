@@ -557,6 +557,7 @@ def train_embed(
     save: bool = typer.Option(True, "--save/--no-save"),
 ) -> None:
     """Train embedding-based ranker on labeled scenes."""
+    from poseguide.config import RUNS_DIR
     from poseguide.data.loader import list_scene_files, load_scene
     from poseguide.models.embed import EmbedPoseRanker
     scenes = [load_scene(p) for p in list_scene_files()]
@@ -580,8 +581,9 @@ def data_datasets(
     domain: str | None = typer.Option(None, "--domain", "-d", help="Filter by domain"),
 ) -> None:
     """List public pose/photography datasets."""
-    from poseguide.data.datasets import list_datasets
     from rich.table import Table
+
+    from poseguide.data.datasets import list_datasets
     ds_list = list_datasets(domain=domain)
     table = Table(title=f"Public datasets ({len(ds_list)})")
     table.add_column("Name"); table.add_column("Domain"); table.add_column("License"); table.add_column("Keypoints")

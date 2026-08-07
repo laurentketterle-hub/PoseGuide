@@ -1,7 +1,9 @@
 """Evaluation metrics: hit@k, precision@k, recall@k, MRR (#21)."""
 from __future__ import annotations
+
 from poseguide.data.loader import list_scene_files, load_scene
 from poseguide.models.toy import ToyPoseRanker
+
 
 def evaluate_scenes(top_k: int = 3) -> dict:
     ranker = ToyPoseRanker()
