@@ -1,4 +1,5 @@
 """Evaluation metrics: hit@k, precision@k, recall@k, MRR (#21)."""
+
 from __future__ import annotations
 
 from poseguide.data.loader import list_scene_files, load_scene
@@ -34,13 +35,15 @@ def evaluate_scenes(top_k: int = 3) -> dict:
                     rr = 1.0 / (i + 1)
                     break
             mrr_sum += rr
-        rows.append({
-            "scene": scene.get("id"),
-            "expected": sorted(expected),
-            "top": top_ids,
-            "hit": hit,
-            "overlap": sorted(inter),
-        })
+        rows.append(
+            {
+                "scene": scene.get("id"),
+                "expected": sorted(expected),
+                "top": top_ids,
+                "hit": hit,
+                "overlap": sorted(inter),
+            }
+        )
     n_l = max(1, labeled)
     return {
         "top_k": top_k,

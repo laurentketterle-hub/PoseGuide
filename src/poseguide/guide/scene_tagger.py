@@ -1,4 +1,5 @@
 """Scene tagger: heuristic/CV stub for background tags (#6)."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -16,7 +17,10 @@ PRESET_TAGS = {
     "home": ["home", "indoor", "soft_light", "casual", "portrait"],
 }
 
-def tag_scene(description: str | None = None, preset: str | None = None, image_path: Path | None = None) -> list[str]:
+
+def tag_scene(
+    description: str | None = None, preset: str | None = None, image_path: Path | None = None
+) -> list[str]:
     """Produce scene tags from a description, preset name, or image path."""
     if preset and preset.lower() in PRESET_TAGS:
         return list(PRESET_TAGS[preset.lower()])
@@ -33,8 +37,12 @@ def tag_scene(description: str | None = None, preset: str | None = None, image_p
     if image_path:
         # Heuristic stub: use filename keywords
         stem = image_path.stem.lower()
-        for kw, preset_tags in [("beach", PRESET_TAGS["beach"]), ("urban", PRESET_TAGS["urban"]),
-                                 ("studio", PRESET_TAGS["studio"]), ("forest", PRESET_TAGS["forest"])]:
+        for kw, preset_tags in [
+            ("beach", PRESET_TAGS["beach"]),
+            ("urban", PRESET_TAGS["urban"]),
+            ("studio", PRESET_TAGS["studio"]),
+            ("forest", PRESET_TAGS["forest"]),
+        ]:
             if kw in stem:
                 return preset_tags
         return ["outdoor", "portrait", "daylight"]
