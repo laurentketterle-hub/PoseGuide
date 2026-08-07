@@ -1,0 +1,25 @@
+# PoseGuide training pipeline config
+# Usage: python -m poseguide.train.trainer --config configs/train.yaml
+
+model:
+  name: ToyPoseRanker
+  type: toy
+
+training:
+  epochs: 5
+  early_stopping_patience: 3
+
+seed: 42
+
+checkpoint:
+  enabled: true
+  save_dir: data/runs/checkpoints
+  save_every_n_epochs: 1
+  keep_last_n: 3
+
+data:
+  scenes_dir: data/scenes
+
+output:
+  report_dir: data/runs
+  metrics_file: train_metrics.json

@@ -24,6 +24,7 @@ dev = [
   "pytest-cov>=5.0",
   # Pin major.minor so format rules stay stable across CI/local (ruff>=0.4 floats to latest).
   "ruff>=0.15.7,<0.16",
+  "pyyaml>=6.0",
 ]
 torch = [
   "torch>=2.2",
