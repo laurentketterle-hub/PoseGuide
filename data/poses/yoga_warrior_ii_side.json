@@ -1,0 +1,95 @@
+{
+  "id": "yoga_warrior_ii_side",
+  "name": "Yoga Warrior II Side",
+  "standing": true,
+  "difficulty": "medium",
+  "tags": [
+    "fitness",
+    "yoga",
+    "indoor",
+    "studio",
+    "wellness",
+    "side_view"
+  ],
+  "tips": [
+    "Front knee bent at 90 degrees, aligned over ankle",
+    "Back leg straight, foot turned out 90 degrees",
+    "Arms extended horizontally, parallel to floor",
+    "Gaze forward over front hand",
+    "Engage core, square hips",
+    "Hold for 5-10 breaths"
+  ],
+  "camera_cues": [
+    "Side profile camera angle",
+    "Full body in frame",
+    "Even, diffused studio lighting",
+    "Plain background preferred"
+  ],
+  "joints": {
+    "nose": [
+      0.65,
+      0.12,
+      0.0
+    ],
+    "l_shoulder": [
+      0.62,
+      0.26,
+      0.0
+    ],
+    "r_shoulder": [
+      0.68,
+      0.26,
+      0.0
+    ],
+    "l_elbow": [
+      0.52,
+      0.26,
+      0.0
+    ],
+    "r_elbow": [
+      0.82,
+      0.26,
+      0.0
+    ],
+    "l_wrist": [
+      0.44,
+      0.26,
+      0.0
+    ],
+    "r_wrist": [
+      0.9,
+      0.26,
+      0.0
+    ],
+    "l_hip": [
+      0.63,
+      0.54,
+      0.0
+    ],
+    "r_hip": [
+      0.67,
+      0.54,
+      0.0
+    ],
+    "l_knee": [
+      0.55,
+      0.72,
+      0.0
+    ],
+    "r_knee": [
+      0.67,
+      0.76,
+      0.0
+    ],
+    "l_ankle": [
+      0.5,
+      0.93,
+      0.0
+    ],
+    "r_ankle": [
+      0.67,
+      0.93,
+      0.0
+    ]
+  }
+}

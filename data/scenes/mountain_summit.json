@@ -1,0 +1,26 @@
+{
+  "id": "mountain_summit",
+  "name": "Mountain Summit Vista",
+  "tags": [
+    "outdoor",
+    "mountain",
+    "daylight",
+    "adventure",
+    "landscape",
+    "hero"
+  ],
+  "mood": [
+    "epic",
+    "triumphant",
+    "free"
+  ],
+  "expected_poses": [
+    "power_stance",
+    "arms_raised",
+    "hands_on_hips_hero"
+  ],
+  "composition": {
+    "horizon": "lower_third",
+    "subject_placement": "center"
+  }
+}

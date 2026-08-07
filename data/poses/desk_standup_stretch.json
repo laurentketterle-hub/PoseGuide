@@ -1,0 +1,93 @@
+{
+  "id": "desk_standup_stretch",
+  "name": "Desk Stand-up Stretch",
+  "standing": true,
+  "difficulty": "easy",
+  "tags": [
+    "office",
+    "indoor",
+    "ergonomics",
+    "stretch",
+    "standing",
+    "casual"
+  ],
+  "tips": [
+    "Stand behind or beside desk",
+    "Reach arms overhead, clasp hands",
+    "Arch slightly backward from mid-back",
+    "Keep feet hip-width apart",
+    "Breathe deeply during hold"
+  ],
+  "camera_cues": [
+    "Medium full-body shot",
+    "Slightly elevated angle to show desk context",
+    "Natural office lighting"
+  ],
+  "joints": {
+    "nose": [
+      0.5,
+      0.1,
+      0.0
+    ],
+    "l_shoulder": [
+      0.44,
+      0.24,
+      0.0
+    ],
+    "r_shoulder": [
+      0.56,
+      0.24,
+      0.0
+    ],
+    "l_elbow": [
+      0.36,
+      0.15,
+      0.0
+    ],
+    "r_elbow": [
+      0.64,
+      0.15,
+      0.0
+    ],
+    "l_wrist": [
+      0.4,
+      0.06,
+      0.0
+    ],
+    "r_wrist": [
+      0.6,
+      0.06,
+      0.0
+    ],
+    "l_hip": [
+      0.46,
+      0.55,
+      0.0
+    ],
+    "r_hip": [
+      0.54,
+      0.55,
+      0.0
+    ],
+    "l_knee": [
+      0.45,
+      0.75,
+      0.0
+    ],
+    "r_knee": [
+      0.55,
+      0.75,
+      0.0
+    ],
+    "l_ankle": [
+      0.44,
+      0.94,
+      0.0
+    ],
+    "r_ankle": [
+      0.56,
+      0.94,
+      0.0
+    ]
+  }
+}

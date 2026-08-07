@@ -1,0 +1,26 @@
+{
+  "id": "city_rooftop_night",
+  "name": "City Rooftop Night",
+  "tags": [
+    "urban",
+    "night",
+    "cityscape",
+    "portrait",
+    "neon",
+    "outdoor"
+  ],
+  "mood": [
+    "mysterious",
+    "chic",
+    "cinematic"
+  ],
+  "expected_poses": [
+    "lean_wall_casual",
+    "over_shoulder_look",
+    "night_city_lean_against_rail"
+  ],
+  "composition": {
+    "horizon": "upper_third",
+    "subject_placement": "left_third"
+  }
+}

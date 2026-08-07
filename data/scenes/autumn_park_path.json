@@ -1,0 +1,26 @@
+{
+  "id": "autumn_park_path",
+  "name": "Autumn Park Path",
+  "tags": [
+    "outdoor",
+    "park",
+    "daylight",
+    "nature",
+    "romantic",
+    "autumn"
+  ],
+  "mood": [
+    "warm",
+    "peaceful",
+    "nostalgic"
+  ],
+  "expected_poses": [
+    "walk_toward_camera",
+    "looking_away",
+    "umbrella_walk"
+  ],
+  "composition": {
+    "horizon": "mid",
+    "subject_placement": "center"
+  }
+}

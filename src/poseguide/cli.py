@@ -313,7 +313,7 @@ def eval_scenes(
     path = RUNS_DIR / "eval_scenes.json"
     path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     console.print(
-        f"[green]hit@{top}[/green]={report['hit_at_k']} "
+        f"[green]hit@{top}[/green]={report['hit_at_k']} MRR={report.get('mrr','N/A')} "
         f"P@{top}={report.get('precision_at_k')} "
         f"R@{top}={report.get('recall_at_k')} "
         f"n={report['n_labeled']}/{report['n_scenes']}"
@@ -478,6 +478,116 @@ def train_report() -> None:
         raise typer.Exit(code=1)
     console.print(path.read_text(encoding="utf-8"))
 
+
+
+
+# ---------------------------------------------------------------------------
+# Export commands (#22)
+# ---------------------------------------------------------------------------
+export_app = typer.Typer(help="Export poses to COCO / MediaPipe formats")
+app.add_typer(export_app, name="export")
+
+
+@export_app.command("poses")
+def export_poses(
+    fmt: str = typer.Option("mediapipe", "--format", "-f", help="coco or mediapipe"),
+    out_dir: Path | None = typer.Option(None, "--out-dir", "-o"),
+) -> None:
+    """Export all poses to COCO or MediaPipe keypoint format."""
+    from poseguide.data.export_format import export_all_poses
+    out = export_all_poses(fmt=fmt.lower(), out_dir=out_dir)
+    console.print(f"[green]Exported[/green] {len(list(out.glob('*.json')))} files -> {out}")
+
+
+# ---------------------------------------------------------------------------
+# Render batch SVG (#30)
+# ---------------------------------------------------------------------------
+render_app = typer.Typer(help="Batch render commands")
+app.add_typer(render_app, name="render")
+
+
+@render_app.command("batch-svg")
+def render_batch_svg(
+    out_dir: Path | None = typer.Option(None, "--out-dir", "-o"),
+    limit: int = typer.Option(0, "--limit", "-n", min=0, help="Max poses to render (0=all)"),
+) -> None:
+    """Render all poses to SVG stick figures in out/ directory."""
+    from poseguide.data.loader import list_pose_files
+    from poseguide.render.svg import render_pose_svg
+    out = out_dir or (OUT_DIR / "svg_batch")
+    out.mkdir(parents=True, exist_ok=True)
+    files = list_pose_files()
+    if limit > 0:
+        files = files[:limit]
+    count = 0
+    for path in files:
+        pose_id = path.stem
+        try:
+            render_pose_svg(pose_id, out / f"{pose_id}.svg")
+            count += 1
+        except KeyError:
+            pass
+    console.print(f"[green]Rendered[/green] {count} SVGs -> {out}")
+
+
+# ---------------------------------------------------------------------------
+# Scene tagger (#6)
+# ---------------------------------------------------------------------------
+tagger_app = typer.Typer(help="Scene tagger from description or preset")
+app.add_typer(tagger_app, name="tagger")
+
+
+@tagger_app.command("tags")
+def tagger_tags(
+    description: str | None = typer.Option(None, "--desc", "-d"),
+    preset: str | None = typer.Option(None, "--preset", "-p"),
+) -> None:
+    """Produce scene tags from a description or preset name."""
+    from poseguide.guide.scene_tagger import tag_scene
+    tags = tag_scene(description=description, preset=preset)
+    console.print_json(data={"tags": tags, "count": len(tags)})
+
+
+# ---------------------------------------------------------------------------
+# Train embed (#8)
+# ---------------------------------------------------------------------------
+@train_app.command("embed")
+def train_embed(
+    epochs: int = typer.Option(5, "--epochs", "-e", min=1, max=50),
+    save: bool = typer.Option(True, "--save/--no-save"),
+) -> None:
+    """Train embedding-based ranker on labeled scenes."""
+    from poseguide.data.loader import list_scene_files, load_scene
+    from poseguide.models.embed import EmbedPoseRanker
+    scenes = [load_scene(p) for p in list_scene_files()]
+    labeled = [s for s in scenes if s.get("expected_poses")]
+    ranker = EmbedPoseRanker()
+    history = ranker.train(labeled, epochs=epochs)
+    console.print(f"[green]Trained embed ranker[/green] on {len(labeled)} labeled scenes")
+    for h in history:
+        console.print(f"  epoch {h['epoch']}: loss={h['loss']}")
+    if save:
+        path = RUNS_DIR / "embed_ranker.json"
+        ranker.save(path)
+        console.print(f"Saved: {path}")
+
+
+# ---------------------------------------------------------------------------
+# Datasets list (#20)
+# ---------------------------------------------------------------------------
+@data_app.command("datasets")
+def data_datasets(
+    domain: str | None = typer.Option(None, "--domain", "-d", help="Filter by domain"),
+) -> None:
+    """List public pose/photography datasets."""
+    from poseguide.data.datasets import list_datasets
+    from rich.table import Table
+    ds_list = list_datasets(domain=domain)
+    table = Table(title=f"Public datasets ({len(ds_list)})")
+    table.add_column("Name"); table.add_column("Domain"); table.add_column("License"); table.add_column("Keypoints")
+    for d in ds_list:
+        table.add_row(d["name"], d["domain"], d["license"], d["keypoints"])
+    console.print(table)
 
 if __name__ == "__main__":
     app()

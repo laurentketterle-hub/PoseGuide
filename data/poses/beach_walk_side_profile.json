@@ -1,0 +1,95 @@
+{
+  "id": "beach_walk_side_profile",
+  "name": "Beach Walk Side Profile",
+  "standing": true,
+  "difficulty": "easy",
+  "tags": [
+    "beach",
+    "outdoor",
+    "walk",
+    "side_view",
+    "casual",
+    "daylight",
+    "golden_hour"
+  ],
+  "tips": [
+    "Walk along shoreline, mid-stride capture",
+    "Look forward or slightly toward horizon",
+    "Arms swing naturally at sides",
+    "Barefoot or casual sandals",
+    "Soft breeze adds movement to hair/clothing"
+  ],
+  "camera_cues": [
+    "Pure side profile, subject in right or left third",
+    "Horizon on lower third line",
+    "Golden hour or soft daylight",
+    "Shallow depth of field separates subject from sea"
+  ],
+  "joints": {
+    "nose": [
+      0.7,
+      0.12,
+      0.0
+    ],
+    "l_shoulder": [
+      0.67,
+      0.26,
+      0.0
+    ],
+    "r_shoulder": [
+      0.73,
+      0.26,
+      0.0
+    ],
+    "l_elbow": [
+      0.64,
+      0.42,
+      0.0
+    ],
+    "r_elbow": [
+      0.76,
+      0.42,
+      0.0
+    ],
+    "l_wrist": [
+      0.62,
+      0.56,
+      0.0
+    ],
+    "r_wrist": [
+      0.78,
+      0.56,
+      0.0
+    ],
+    "l_hip": [
+      0.68,
+      0.54,
+      0.0
+    ],
+    "r_hip": [
+      0.72,
+      0.54,
+      0.0
+    ],
+    "l_knee": [
+      0.66,
+      0.73,
+      0.0
+    ],
+    "r_knee": [
+      0.72,
+      0.73,
+      0.0
+    ],
+    "l_ankle": [
+      0.65,
+      0.93,
+      0.0
+    ],
+    "r_ankle": [
+      0.72,
+      0.92,
+      0.0
+    ]
+  }
+}
