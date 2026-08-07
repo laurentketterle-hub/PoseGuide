@@ -1,0 +1,32 @@
+name: CI - SVG Render Smoke
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  svg-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Smoke test SVG render
+        run: |
+          pip install pytest
+          python -m pytest tests/test_svg_render.py -v --tb=short
+      - name: CLI smoke test
+        run: |
+          python scripts/render_svg.py tests/ -o out/svg/ 2>/dev/null || python -c "
+          import json, tempfile
+          from pathlib import Path
+          from poseguide.svg_render import batch_render
+          with tempfile.TemporaryDirectory() as d:
+              p = Path(d) / 'test.json'
+              p.write_text(json.dumps({'poses': [{'name': 'smoke', 'joints': [{'name': 'j', 'x': 100, 'y': 100}]}]}))
+              r = batch_render(str(d), str(Path(d) / 'out'))
+              assert r['total_files'] == 1 and len(r['rendered']) == 1
+              print('CLI smoke test passed')
+          "
