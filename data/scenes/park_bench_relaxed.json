@@ -1,0 +1,20 @@
+{
+  "id": "park_bench_relaxed",
+  "name": "Park Bench Relaxed",
+  "tags": [
+    "outdoor",
+    "park",
+    "bench",
+    "casual",
+    "daylight"
+  ],
+  "description": "Subject sitting on a wooden park bench with trees and path background",
+  "lighting": "natural_daylight",
+  "environment": "urban_park",
+  "recommended_poses": [
+    "sitting_crossed_legs",
+    "leaning_back",
+    "arm_on_bench"
+  ],
+  "difficulty": "beginner"
+}
