@@ -1,0 +1,79 @@
+# PoseGuide Training Pipeline Configuration
+# YAML config for reproducible training runs
+
+project:
+  name: "poseguide-training"
+  version: "1.0.0"
+  description: "Training pipeline for pose estimation and recommendation"
+
+data:
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  batch_size: 32
+  num_workers: 4
+  image_size: [256, 256]
+  augmentations:
+    random_horizontal_flip: true
+    random_rotation: 15  # degrees
+    color_jitter:
+      brightness: 0.2
+      contrast: 0.2
+      saturation: 0.2
+      hue: 0.1
+    normalize:
+      mean: [0.485, 0.456, 0.406]
+      std: [0.229, 0.224, 0.225]
+
+model:
+  backbone: "resnet50"
+  pretrained: true
+  embedding_dim: 256
+  num_classes: null  # auto-detected from dataset
+  dropout: 0.3
+
+training:
+  epochs: 100
+  optimizer: "adamw"
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  scheduler:
+    type: "cosine_annealing"
+    warmup_epochs: 5
+    min_lr: 0.00001
+  loss:
+    triplet:
+      margin: 0.5
+      mining: "semi-hard"
+    cross_entropy:
+      weight: 0.3
+  early_stopping:
+    patience: 15
+    monitor: "val_loss"
+    min_delta: 0.001
+
+checkpoint:
+  save_dir: "./checkpoints"
+  save_frequency: 5  # epochs
+  save_best: true
+  resume_from: null  # path to checkpoint for resume
+
+logging:
+  log_dir: "./logs"
+  log_frequency: 100  # steps
+  tensorboard: true
+  wandb:
+    enabled: false
+    project: "poseguide"
+    entity: null
+
+seeds:
+  python: 42
+  numpy: 42
+  torch: 42
+  cuda_deterministic: true
+
+hardware:
+  device: "cuda"  # cuda, cpu, or mps
+  mixed_precision: true  # AMP
+  distributed: false
