@@ -1,0 +1,20 @@
+{
+  "id": "beach_sunset_couple",
+  "name": "Beach Sunset Couple",
+  "tags": [
+    "outdoor",
+    "beach",
+    "sunset",
+    "couple",
+    "romantic"
+  ],
+  "description": "Two subjects walking hand-in-hand on a sandy beach at golden hour",
+  "lighting": "golden_hour",
+  "environment": "beach",
+  "recommended_poses": [
+    "couple_walk_holding_hands",
+    "side_by_side",
+    "looking_at_each_other"
+  ],
+  "difficulty": "intermediate"
+}
