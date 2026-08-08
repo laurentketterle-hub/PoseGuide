@@ -1,0 +1,24 @@
+{
+  "id": "lakeside_dock_sunset",
+  "name": "Lakeside Dock Sunset",
+  "tags": [
+    "lake",
+    "outdoor",
+    "golden_hour",
+    "portrait",
+    "solo"
+  ],
+  "mood": [
+    "peaceful",
+    "reflective"
+  ],
+  "expected_poses": [
+    "sitting_alone",
+    "standing_at_edge",
+    "looking_away"
+  ],
+  "composition": {
+    "horizon": "lower_third",
+    "subject_placement": "left_third"
+  }
+}
