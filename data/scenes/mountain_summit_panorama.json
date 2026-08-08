@@ -1,0 +1,24 @@
+{
+  "id": "mountain_summit_panorama",
+  "name": "Mountain Summit Panorama",
+  "tags": [
+    "mountain",
+    "outdoor",
+    "daylight",
+    "landscape",
+    "group"
+  ],
+  "mood": [
+    "adventurous",
+    "triumphant"
+  ],
+  "expected_poses": [
+    "arms_raised",
+    "group_photo",
+    "pointing_at_view"
+  ],
+  "composition": {
+    "horizon": "upper_third",
+    "subject_placement": "center"
+  }
+}
