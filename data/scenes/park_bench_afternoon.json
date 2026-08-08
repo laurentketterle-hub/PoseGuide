@@ -1,0 +1,24 @@
+{
+  "id": "park_bench_afternoon",
+  "name": "Park Bench Afternoon",
+  "tags": [
+    "park",
+    "outdoor",
+    "daylight",
+    "portrait",
+    "couple"
+  ],
+  "mood": [
+    "relaxed",
+    "casual"
+  ],
+  "expected_poses": [
+    "sitting_side_by_side",
+    "over_shoulder",
+    "looking_at_each_other"
+  ],
+  "composition": {
+    "horizon": "middle",
+    "subject_placement": "center"
+  }
+}
