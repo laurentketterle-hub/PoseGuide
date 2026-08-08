@@ -1,0 +1,20 @@
+{
+  "id": "rooftop_city_night",
+  "name": "Rooftop City Night",
+  "tags": [
+    "outdoor",
+    "urban",
+    "night",
+    "cityscape",
+    "dramatic"
+  ],
+  "description": "Subject on a rooftop with city skyline and night lights backdrop",
+  "lighting": "low_light_ambient",
+  "environment": "urban_rooftop",
+  "recommended_poses": [
+    "power_stance",
+    "hand_on_hip",
+    "over_shoulder_look"
+  ],
+  "difficulty": "advanced"
+}
