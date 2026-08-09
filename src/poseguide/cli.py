@@ -249,8 +249,10 @@ def guide_recommend(
 @guide_app.command("score")
 def guide_score(
     pose: str = typer.Option(..., "--pose", "-p"),
-    subject: Path = typer.Option(..., "--subject", "-i", exists=True, dir_okay=False),
+    subject: Path = typer.Option(..., "--subject", "-i", exists=True, dir_okay=False,
+                                  help="Subject JSON or image (jpg/png/webp — auto-extracts via MediaPipe)"),
 ) -> None:
+    """Score a subject image or JSON against a catalog pose. Images auto-extract joints via MediaPipe when available."""
     try:
         result = score_subject_against_pose(pose, subject)
     except KeyError as exc:
