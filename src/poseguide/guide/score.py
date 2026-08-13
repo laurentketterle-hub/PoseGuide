@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import numpy as np
+
 from poseguide.data.loader import load_subject
 from poseguide.models.catalog import get_pose_by_id
 from poseguide.models.toy import ToyPoseRanker
@@ -13,8 +15,6 @@ _IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".webp", ".gif"}
 def score_subject_against_pose(
     pose_id: str,
     subject_path: Path,
-    *,
-    use_mediapipe: bool = False,
 ) -> dict:
     """Score a subject (or image) against a catalog pose.
 
@@ -28,11 +28,6 @@ def score_subject_against_pose(
         an image the function attempts MediaPipe extraction automatically;
         if the ``vision`` extra is not installed it falls back to a synthetic
         toy vector so the scoring path still works offline.
-    use_mediapipe:
-        When ``True`` and ``subject_path`` is a JSON file, MediaPipe is still
-        *not* applied (JSON already carries joint data).  Set ``True`` only
-        when you want to force the image→extract path even for JSON inputs
-        (rare — typically only for testing the extraction pipeline).
     """
     pose = get_pose_by_id(pose_id)
     if pose is None:
@@ -90,8 +85,6 @@ def score_subject_against_pose(
 
 def _toy_fallback_subject(path: Path) -> dict:
     """Return a synthetic subject payload when MediaPipe is unavailable."""
-    import numpy as np
-
     rng = np.random.default_rng(hash(path.stem) % (2**31))
     vec = rng.uniform(0.2, 0.8, size=39).astype(np.float64)
     return {
@@ -101,10 +94,8 @@ def _toy_fallback_subject(path: Path) -> dict:
     }
 
 
-def poseguide_vector_from_extract(subject: dict) -> "np.ndarray":
+def poseguide_vector_from_extract(subject: dict) -> np.ndarray:
     """Convert a MediaPipe extract payload joints to the joint_vector format."""
-    import numpy as np
-
     from poseguide.data.loader import joints_to_vector
 
     return joints_to_vector(subject.get("joints") or {})
