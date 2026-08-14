@@ -13,7 +13,7 @@ from poseguide.data.loader import list_pose_files, list_scene_files, load_pose, 
 from poseguide.models.catalog import get_pose_by_id
 from poseguide.guide.demo import PRESETS, run_demo
 from poseguide.guide.recommend import recommend_for_scene_path, recommend_for_tags
-from poseguide.guide.score import score_subject_against_pose
+from poseguide.guide.score import VisionScoreUnavailableError, score_subject
 from poseguide.render.overlay import (
     VisionUnavailableError,
     render_overlay_png,
@@ -252,9 +252,13 @@ def guide_score(
     subject: Path = typer.Option(..., "--subject", "-i", exists=True, dir_okay=False),
 ) -> None:
     try:
-        result = score_subject_against_pose(pose, subject)
+        result = score_subject(pose, subject)
     except KeyError as exc:
         console.print(f"[red]{exc}[/red]")
+        raise typer.Exit(code=1) from exc
+    except VisionScoreUnavailableError as exc:
+        console.print(f"[red]{exc}[/red]")
+        console.print("[dim]Tip: pass a JSON subject file to use the offline toy path.[/dim]")
         raise typer.Exit(code=1) from exc
     console.print_json(data=result)
 
