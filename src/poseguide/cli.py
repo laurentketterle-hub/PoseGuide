@@ -13,7 +13,7 @@ from poseguide.data.loader import list_pose_files, list_scene_files, load_pose, 
 from poseguide.models.catalog import get_pose_by_id
 from poseguide.guide.demo import PRESETS, run_demo
 from poseguide.guide.recommend import recommend_for_scene_path, recommend_for_tags
-from poseguide.guide.score import score_subject_against_pose
+from poseguide.guide.score import score_subject
 from poseguide.render.overlay import (
     VisionUnavailableError,
     render_overlay_png,
@@ -250,9 +250,13 @@ def guide_recommend(
 def guide_score(
     pose: str = typer.Option(..., "--pose", "-p"),
     subject: Path = typer.Option(..., "--subject", "-i", exists=True, dir_okay=False),
+    vision: bool = typer.Option(
+        False, "--vision", help="Score a photo via the optional MediaPipe vision path"
+    ),
 ) -> None:
+    """Score a subject (JSON) or photo (--vision) against a target pose."""
     try:
-        result = score_subject_against_pose(pose, subject)
+        result = score_subject(pose, subject, vision=vision)
     except KeyError as exc:
         console.print(f"[red]{exc}[/red]")
         raise typer.Exit(code=1) from exc
