@@ -61,13 +61,9 @@ def test_vision_falls_back_when_extra_missing(tmp_path: Path, monkeypatch) -> No
     image.write_bytes(b"fake-image-bytes")
 
     def _raise() -> None:
-        raise RuntimeError(
-            "MediaPipe pose extraction requires the optional 'vision' extra."
-        )
+        raise RuntimeError("MediaPipe pose extraction requires the optional 'vision' extra.")
 
-    monkeypatch.setattr(
-        "poseguide.data.extract.default_mediapipe_detector", _raise
-    )
+    monkeypatch.setattr("poseguide.data.extract.default_mediapipe_detector", _raise)
 
     result = score_subject("contrapposto", image, vision=True)
     assert result["vision_available"] is False
@@ -84,9 +80,7 @@ def test_vision_raises_without_fallback(tmp_path: Path, monkeypatch) -> None:
     def _raise() -> None:
         raise RuntimeError("vision extra missing")
 
-    monkeypatch.setattr(
-        "poseguide.data.extract.default_mediapipe_detector", _raise
-    )
+    monkeypatch.setattr("poseguide.data.extract.default_mediapipe_detector", _raise)
 
     with pytest.raises(VisionUnavailableError):
         score_subject("contrapposto", image, vision=True, allow_fallback=False)
@@ -100,9 +94,7 @@ def test_vision_path_scores_with_injected_detector(tmp_path: Path) -> None:
     def detector(path: Path) -> list:
         return _fake_landmarks("contrapposto")
 
-    result = score_subject_image(
-        "contrapposto", image, detector=detector, allow_fallback=False
-    )
+    result = score_subject_image("contrapposto", image, detector=detector, allow_fallback=False)
     assert result["vision_available"] is True
     assert result["path"] == "vision"
     assert result["source"] == "mediapipe"
